@@ -22,14 +22,10 @@ public class ShotgunShot : MonoBehaviour
     private float nextTimeToFire = 0f;
     private bool isReloading = false;
 
-    void Awake()
+    void Start()
     {
         if (cam == null)
             cam = Camera.main;
-    }
-
-    void Start()
-    {
         currentAmmo = magazineSize;
     }
 
@@ -57,6 +53,23 @@ public class ShotgunShot : MonoBehaviour
 
     void Shoot()
     {
+        /*currentAmmo--;
+
+        for (int i = 0; i < pellets; i++)
+        {
+            Vector3 direction = firePoint.forward;
+
+            direction = Quaternion.Euler(
+                Random.Range(-spread, spread),
+                Random.Range(-spread, spread),
+                0
+            ) * direction;
+
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+            rb.linearVelocity = direction.normalized * bulletSpeed;
+        }*/
         currentAmmo--;
 
         for (int i = 0; i < pellets; i++)

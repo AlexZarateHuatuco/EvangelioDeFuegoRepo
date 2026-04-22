@@ -15,13 +15,8 @@ public class Bullet : MonoBehaviour
     {
         if (impactEffect != null)
         {
-            Instantiate(
-                impactEffect,
-                collision.contacts[0].point,
-                Quaternion.LookRotation(collision.contacts[0].normal)
-            );
+            Instantiate(impactEffect, collision.contacts[0].point,Quaternion.LookRotation(collision.contacts[0].normal));
         }
-
         Destroy(ParentObject);
     }
 }
