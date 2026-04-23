@@ -1,73 +1,3 @@
-/*using UnityEngine;
-using System.Collections;
-
-public class RifleShot : MonoBehaviour
-{
-    [Header("Referencias")]
-    public Camera cam;
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-
-    [Header("Configuración")]
-    public float fireRate = 10f;
-    public int magazineSize = 30;
-    public float reloadTime = 2f;
-    public float bulletSpeed = 1f;
-
-    private int currentAmmo;
-    private float nextTimeToFire = 0f;
-    private bool isReloading = false;
-
-    void Start()
-    {
-        if (cam == null)
-            cam = Camera.main;
-        currentAmmo = magazineSize;
-    }
-
-    void Update()
-    {
-        if (isReloading) return;
-
-        if (currentAmmo <= 0)
-        {
-            StartCoroutine(Reload());
-            return;
-        }
-
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
-        {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(Reload());
-        }
-    }
-
-    void Shoot()
-    {
-        /*currentAmmo--;
-
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-
-        Vector3 direction = firePoint.forward;
-
-        rb.linearVelocity = direction.normalized * bulletSpeed;
-        
-    }
-
-    IEnumerator Reload()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = magazineSize;
-        isReloading = false;
-    }
-}*/
 using UnityEngine;
 using System.Collections;
 
@@ -90,16 +20,14 @@ public class RifleShot : MonoBehaviour
 
     void Awake()
     {
-        // Esto evita el problema de Camera.main con Cinemachine
-        if (cam == null)
-        {
-            cam = FindObjectOfType<Camera>();
-        }
+
+        AsignarCamara();
     }
 
     void Start()
     {
         currentAmmo = magazineSize;
+        AsignarCamara();
     }
 
     void Update()
@@ -135,7 +63,7 @@ public class RifleShot : MonoBehaviour
         currentAmmo--;
 
         // Ray desde el centro de la pantalla
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        /*Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
         Vector3 targetPoint;
@@ -147,22 +75,32 @@ public class RifleShot : MonoBehaviour
         else
         {
             targetPoint = ray.GetPoint(100f);
-        }
+        }*/
 
         // Dirección desde el arma hacia el punto apuntado
-        Vector3 direction = (targetPoint - firePoint.position).normalized;
+        //Vector3 direction = (targetPoint - firePoint.position).normalized;
 
-        Quaternion rot = Quaternion.LookRotation(direction);
-
+        //se usa para invocar y dirigir la bala
+        Quaternion rot = Quaternion.LookRotation(cam.transform.forward);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rot);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-        if (rb != null)
+        //Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+        /*if (rb != null)
         {
             rb.linearVelocity = direction * bulletSpeed; // CORRECTO
-        }
+        }*/
 
-        Debug.DrawRay(firePoint.position, direction * 10f, Color.red, 1f);
+        //Debug.DrawRay(firePoint.position, direction * 10f, Color.red, 1f);
+    }
+
+    void AsignarCamara()
+    {
+        GameObject camObj = GameObject.Find("Camera");
+        if (camObj != null)
+        {
+            cam = camObj.GetComponent<Camera>();
+        }
     }
 
     IEnumerator Reload()
