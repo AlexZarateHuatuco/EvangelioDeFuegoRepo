@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 8873695734975604913}
   - component: {fileID: 2356332914920372069}
   - component: {fileID: 7533031595535811283}
-  - component: {fileID: 3908695804826958621}
+  - component: {fileID: 5108242859776501442}
   - component: {fileID: 8611678819734619988}
   - component: {fileID: 7196402756099860592}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3792180112852719027}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7533031595535811283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -93,8 +93,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3908695804826958621
-CapsuleCollider:
+--- !u!135 &5108242859776501442
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,10 +111,8 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Radius: 0.5000001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8611678819734619988
 Rigidbody:
@@ -155,10 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f05283eb7e12041b81a26cdeea90a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  speed: 20
-  lifeTime: 2
-  impactEffect: {fileID: 8751521045661267698, guid: c20b6489ee9704346927bf9e0ed462f5, type: 3}
-  ParentObject: {fileID: 4927917503454973316}
+  lifeTime: 4
 --- !u!1 &4927917503454973316
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,10 +163,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7833334662443204630}
-  - component: {fileID: 2837275733467825383}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,30 +186,3 @@ Transform:
   - {fileID: 8873695734975604913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2837275733467825383
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4927917503454973316}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0

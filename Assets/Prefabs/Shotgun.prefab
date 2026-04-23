@@ -49,12 +49,12 @@ MonoBehaviour:
   cam: {fileID: 0}
   firePoint: {fileID: 60178114067431743}
   bulletPrefab: {fileID: 4927917503454973316, guid: 50a6925c1e1c8e9488527c8a3fc03b32, type: 3}
+  pellets: 8
+  spread: 5
   fireRate: 1
   magazineSize: 8
   reloadTime: 2
-  bulletSpeed: 1
-  pellets: 8
-  spread: 5
+  bulletSpeed: 10
 --- !u!1 &7208820161571518760
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +80,7 @@ Transform:
   m_GameObject: {fileID: 7208820161571518760}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 237.2, y: 3.4, z: -6}
+  m_LocalPosition: {x: 1.128, y: 0.036, z: -0.067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

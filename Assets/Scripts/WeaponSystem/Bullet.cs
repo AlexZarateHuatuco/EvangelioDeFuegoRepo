@@ -3,20 +3,26 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float lifeTime = 2f;
-    public GameObject impactEffect;
-    public GameObject ParentObject;
+    //public GameObject impactEffect;
 
     void Start()
     {
-        Destroy(ParentObject, lifeTime);
+        Destroy(gameObject, lifeTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    /*void OnTriggerEnter(Collider col)
     {
-        if (impactEffect != null)
+        //if (impactEffect != null)
+        //{
+        //    Instantiate(
+        //        impactEffect,
+        //        col.contacts[0].point,
+        //        Quaternion.identity
+        //    );
+        //}
+        if (col.gameObject.CompareTag("Wall"))
         {
-            Instantiate(impactEffect, collision.contacts[0].point,Quaternion.LookRotation(collision.contacts[0].normal));
+            Destroy(gameObject);
         }
-        Destroy(ParentObject);
-    }
+    }*/
 }
