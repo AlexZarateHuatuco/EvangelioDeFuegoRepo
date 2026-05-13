@@ -30,6 +30,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6740671507793988024}
+  - {fileID: 258178426581736153}
+  - {fileID: 7702960806304992839}
   m_Father: {fileID: 3335455322716776846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2969004190377419540
@@ -79,6 +81,7 @@ GameObject:
   - component: {fileID: 8585580148433116409}
   - component: {fileID: 3058916138101537392}
   - component: {fileID: 6188258105307497561}
+  - component: {fileID: 5808296802791129939}
   - component: {fileID: 6981226428772474401}
   m_Layer: 0
   m_Name: Capsule
@@ -100,7 +103,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 258178426581736153}
   - {fileID: 453431944986293830}
   m_Father: {fileID: 5858103188468241781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,6 +246,24 @@ MonoBehaviour:
   riflePrefab: {fileID: 2704968203399472567, guid: 7c3a745b3879e4b42a2118cbdce181cd, type: 3}
   shotgunPrefab: {fileID: 6775932939721563782, guid: 221960751517d0e4aa23e1c91ac3b786, type: 3}
   weaponHolder: {fileID: 258178426581736153}
+--- !u!114 &5808296802791129939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993116266629341139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5866c3dd8a52c4692830094bbafe20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrenadeThrow
+  cam: {fileID: 0}
+  firePoint: {fileID: 7702960806304992839}
+  grenadePrefab: {fileID: 6775932939721563782, guid: d3d0a98b1496daa42b60b1885398e07b, type: 3}
+  maxDistance: 50
+  arcHeight: 2.5
+  explosionRadius: 5
 --- !u!114 &6981226428772474401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +276,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586b7b4545b0b7a47a0fdc8089365b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeleportDebug
+--- !u!1 &7720816728751529302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7702960806304992839}
+  m_Layer: 0
+  m_Name: GrenadeHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7702960806304992839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720816728751529302}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.7735499, y: -0.49999988, z: -0.23000124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 453431944986293830}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &7750446017941887918
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,12 +331,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7750446017941887918}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.1, y: 0.5, z: 0.03}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.6800004, y: -0.49999988, z: -0.23000124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3335455322716776846}
+  m_Father: {fileID: 453431944986293830}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &8954624123661984271
 GameObject:
