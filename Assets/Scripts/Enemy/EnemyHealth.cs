@@ -17,7 +17,6 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        director = FindFirstObjectByType<SpawnDirector>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +42,6 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("Enemy have died.");
         OnEnemyDeath?.Invoke();
-        director.OnEnemyDeath();
         Destroy(gameObject);
     }
 }

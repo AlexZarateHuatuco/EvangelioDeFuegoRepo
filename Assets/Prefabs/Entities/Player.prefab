@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 466895084342397403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42, y: 1, z: 0.26}
+  m_LocalPosition: {x: 0.42, y: 1.48, z: -0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188465e6006f7f34db1ef8c714560a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
+  moveSpeed: 1
   maxJumps: 2
-  jumpForce: 10
+  jumpForce: 1
   mouseSensitivity: 200
   cameraPivot: {fileID: 453431944986293830}
 --- !u!114 &6188258105307497561
@@ -258,6 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5866c3dd8a52c4692830094bbafe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrenadeThrow
+  grenadeSpeed: 50
+  magazineSize: 30
+  reloadTime: 2
   cam: {fileID: 0}
   firePoint: {fileID: 7702960806304992839}
   grenadePrefab: {fileID: 6775932939721563782, guid: d3d0a98b1496daa42b60b1885398e07b, type: 3}
@@ -365,8 +368,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8954624123661984271}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000014901165, y: 0.00000011920929, z: 0.00000017881395}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00000017881393, y: 0.00000011920929, z: 0.0000058710575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

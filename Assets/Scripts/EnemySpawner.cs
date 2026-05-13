@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn")]
     public float spawnRadius = 10f;
+    public LayerMask groundLayer;
 
     [Header("Oleadas")]
     public int enemiesPerWave = 5;
@@ -21,6 +22,9 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Descanso")]
     public int enemiesDuringRest = 2;
+
+    [Header("Separación")]
+    public float minimumDistanceBetweenEnemies = 4f;
 
     private int currentWave = 1;
 
@@ -43,7 +47,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 SpawnEnemy();
 
-                // Spawn rápido durante la oleada
                 yield return new WaitForSeconds(normalSpawnDelay);
             }
 
@@ -57,19 +60,21 @@ public class EnemySpawner : MonoBehaviour
 
             while (restTimer < timeBetweenWaves)
             {
-                // Spawn lento durante el descanso
                 if (spawnedDuringRest < enemiesDuringRest)
                 {
                     SpawnEnemy();
+
                     spawnedDuringRest++;
 
                     yield return new WaitForSeconds(restSpawnDelay);
+
                     restTimer += restSpawnDelay;
                 }
                 else
                 {
-                    yield return null;
                     restTimer += Time.deltaTime;
+
+                    yield return null;
                 }
             }
 
@@ -79,11 +84,49 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Vector2 randomCircle = Random.insideUnitCircle.normalized;
+        const int maxAttempts = 30;
 
-        Vector3 spawnPos = player.position +
-                           new Vector3(randomCircle.x, 0, randomCircle.y) * spawnRadius;
+        for (int attempt = 0; attempt < maxAttempts; attempt++)
+        {
+            Vector2 randomCircle = Random.insideUnitCircle.normalized;
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            Vector3 candidatePosition =
+                player.position +
+                new Vector3(randomCircle.x, 0f, randomCircle.y) * spawnRadius;
+
+            Ray ray = new Ray(
+                candidatePosition + Vector3.up * 50f,
+                Vector3.down
+            );
+
+            if (Physics.Raycast(ray, out RaycastHit hit, 100f, groundLayer))
+            {
+                Vector3 finalSpawnPos = hit.point;
+
+                Collider[] nearbyEnemies = Physics.OverlapSphere(
+                    finalSpawnPos,
+                    minimumDistanceBetweenEnemies
+                );
+
+                bool tooClose = false;
+
+                foreach (Collider col in nearbyEnemies)
+                {
+                    if (col.CompareTag("Enemy"))
+                    {
+                        tooClose = true;
+                        break;
+                    }
+                }
+
+                if (!tooClose)
+                {
+                    Instantiate(enemyPrefab, finalSpawnPos, Quaternion.identity);
+                    return;
+                }
+            }
+        }
+
+        Debug.LogWarning("No se encontró una posición válida para generar enemigos.");
     }
 }

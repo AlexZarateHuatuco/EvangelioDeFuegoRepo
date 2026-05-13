@@ -59,8 +59,8 @@ Transform:
   m_GameObject: {fileID: 2507201267312841352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.35355, y: 0.24748, z: 0.7962}
-  m_LocalScale: {x: 1, y: 1, z: 0.1147}
+  m_LocalPosition: {x: 0.176, y: -0.121, z: 0.7962}
+  m_LocalScale: {x: 0.645, y: 0.631, z: 0.1147}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5858103188468241781}
@@ -137,7 +137,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -174,8 +174,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3674251848956456128}
   - {fileID: 6998305561788040027}
@@ -206,7 +206,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &7140336505930842038
 MonoBehaviour:
@@ -220,10 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334f5e9d8474498479a4d8edd90aaaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  stopRange: 4
-  detectionRange: 12
-  speed: 3
-  rotationSpeed: 5
+  player: {fileID: 0}
+  visionRange: 3
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  moveSpeed: 1
+  rotationSpeed: 2
 --- !u!114 &8548226972135442722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +240,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
   maxHealth: 1
+  debugDamage: 2
+  currentHealth: 3
