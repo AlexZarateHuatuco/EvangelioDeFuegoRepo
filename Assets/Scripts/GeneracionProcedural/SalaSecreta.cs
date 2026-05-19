@@ -4,6 +4,7 @@ public class SalaSecreta : MonoBehaviour
 {
     int Eleccion;
     public float Generaacion1X, Generaacion1Y, Generaacion1Z;
+    public float Generaacion1RotacionX, Generaacion1RotacionY, Generaacion1RotacionZ;
     public float Generaacion2X, Generaacion2Y, Generaacion2Z;
     public float Generaacion2RotacionX, Generaacion2RotacionY, Generaacion2RotacionZ;
     public GameObject[] salasSecreta;
@@ -14,7 +15,7 @@ public class SalaSecreta : MonoBehaviour
 
         if (Eleccion == 0)
         {
-            Instantiate(salasSecreta[Eleccion], new Vector3(Generaacion1X, Generaacion1Y, Generaacion1Z), Quaternion.identity);
+            Instantiate(salasSecreta[Eleccion], new Vector3(Generaacion1X, Generaacion1Y, Generaacion1Z), Quaternion.Euler(Generaacion1RotacionX, Generaacion1RotacionY, Generaacion1RotacionZ));
         }
         else if (Eleccion == 1)
         {
