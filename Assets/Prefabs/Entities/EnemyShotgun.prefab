@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8b334772edde6334ca322c9ddd2027a0, type: 2}
+  - {fileID: 2100000, guid: 7dc188e1e71bece42a2b8c429d3e8af8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 7140336505930842038}
   - component: {fileID: 8548226972135442722}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
+  bulletTag: BulletShotgun
+  waveManager: {fileID: 0}
   maxHealth: 1
-  debugDamage: 2
   currentHealth: 3
+  isBoss: 0

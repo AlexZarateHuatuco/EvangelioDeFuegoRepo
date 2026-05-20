@@ -105,43 +105,29 @@ public class RifleShot : WeaponBase
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    [Header("Disparo")]
-    public float fireRate = 10f;
-
     [Header("Bala")]
     public float bulletSpeed = 50f;
 
+    [Header("Recarga")]
+    public float reloadTime = 1.5f;
     private float fireCooldown = 0f;
     private bool isReloading = false;
 
     protected override void Start()
     {
         base.Start();
-    }
-
-    void OnEnable()
-    {
-        isReloading = false;
+        weaponType = WeaponType.Rifle;
     }
 
     void Update()
     {
-        if (isReloading)
-            return;
+        if (isReloading) return;
 
-        //Recarga automática
         if (currentAmmo <= 0 && !isReloading)
-        {
             StartCoroutine(Reload());
-        }
 
-        //Cooldown del disparo
-        if (fireCooldown > 0f)
-        {
-            fireCooldown -= Time.deltaTime;
-        }
+        fireCooldown -= Time.deltaTime;
 
-        //Disparo automático
         if (Input.GetButton("Fire1") &&
             fireCooldown <= 0f &&
             currentAmmo > 0)
@@ -155,44 +141,34 @@ public class RifleShot : WeaponBase
     {
         currentAmmo--;
 
-        //Ray desde el centro de la cámara
-        Ray ray = cam.ViewportPointToRay(
-            new Vector3(0.5f, 0.5f, 0f)
-        );
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
 
-        Vector3 direction = ray.direction;
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
+                if (enemy != null)
+                    enemy.TakeDamage(damage);
+            }
+        }
 
-        //Crear bala
         GameObject bullet = Instantiate(
             bulletPrefab,
             firePoint.position,
-            Quaternion.LookRotation(direction)
+            Quaternion.LookRotation(ray.direction)
         );
 
-        //Mover bala
-        Rigidbody rb = bullet.GetComponentInChildren<Rigidbody>();
-
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
-        {
-            rb.linearVelocity =
-                direction.normalized * bulletSpeed;
-        }
-        else
-        {
-            Debug.LogError("La bala no tiene Rigidbody");
-        }
+            rb.linearVelocity = ray.direction.normalized * bulletSpeed;
     }
 
     IEnumerator Reload()
     {
         isReloading = true;
-
         yield return new WaitForSeconds(reloadTime);
-
-        currentAmmo = magazineSize;
-
-        fireCooldown = 0f;
-
+        currentAmmo = maxAmmo;
         isReloading = false;
     }
 }

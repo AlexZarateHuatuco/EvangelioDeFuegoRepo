@@ -1,20 +1,37 @@
 using UnityEngine;
 
+public enum WeaponType
+{
+    Shotgun,
+    Rifle,
+    Grenade
+}
+
 public abstract class WeaponBase : MonoBehaviour
 {
-    [Header("Munición")]
-    public int magazineSize = 30;
-    public float reloadTime = 2f;
+    [Header("Weapon Info")]
+    public string weaponName;
 
-    protected int currentAmmo;
+    [Header("Damage")]
+    public float damage = 25f;
+
+    [Header("Weapon Type")]
+    public WeaponType weaponType;
+
+    [Header("Ammo")]
+    public int currentAmmo = 30;
+    public int maxAmmo = 30;
+
+    [Header("Fire")]
+    public float fireRate = 10f;
 
     protected virtual void Start()
     {
-        currentAmmo = magazineSize;
+        currentAmmo = maxAmmo;
     }
 
     public int CurrentAmmo => currentAmmo;
-    public int MaxAmmo => magazineSize;
+    public int MaxAmmo => maxAmmo;
 
     public abstract void Shoot();
 }

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8966161852795796426}
-  - component: {fileID: 2337662208765308864}
   - component: {fileID: 3558552606819524544}
+  - component: {fileID: 8805605883221460687}
   m_Layer: 0
-  m_Name: Shotgun
+  m_Name: GrenadeThrow
   m_TagString: Shotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,31 +35,6 @@ Transform:
   - {fileID: 3078135367810959454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2337662208765308864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6775932939721563782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5dab081adc49294e9027f9b04f9bdb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShotgunShot
-  weaponName: 
-  damage: 25
-  weaponType: 0
-  currentAmmo: 8
-  maxAmmo: 8
-  fireRate: 10
-  cam: {fileID: 0}
-  firePoint: {fileID: 60178114067431743}
-  bulletPrefab: {fileID: 4927917503454973316, guid: cbe405a62e572f74c851cbba4d38f1c8, type: 3}
-  pellets: 8
-  spread: 5
-  bulletSpeed: 40
-  reloadTime: 1.5
 --- !u!114 &3558552606819524544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,9 +47,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc2cd12b40dfac4eb144fb69894b041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponInfo
-  weaponName: Shotgun
+  weaponName: Grenade
   weaponIcon: {fileID: 21300000, guid: 8457a334943329f4ea3c01b3c6a5a994, type: 3}
-  weapon: {fileID: 2337662208765308864}
+  weapon: {fileID: 8805605883221460687}
+--- !u!114 &8805605883221460687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775932939721563782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793eabfdbbd05fc468d71c4b8b8c62b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrenadeThrow
+  weaponName: 
+  damage: 25
+  weaponType: 2
+  currentAmmo: 30
+  maxAmmo: 30
+  fireRate: 1
+  cam: {fileID: 0}
+  throwPoint: {fileID: 60178114067431743}
+  grenadePrefab: {fileID: 6775932939721563782, guid: d3d0a98b1496daa42b60b1885398e07b, type: 3}
+  throwForce: 20
+  grenadeCooldown: 3
+  explosionRadius: 6
+  grenadeDamage: 100
+  explosionDelay: 1.2
 --- !u!1 &7208820161571518760
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7533031595535811283}
   - component: {fileID: 5108242859776501442}
   - component: {fileID: 8611678819734619988}
+  - component: {fileID: 8051582975541736737}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Bullet
+  m_TagString: BulletShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +141,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8051582975541736737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3792180112852719027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f05283eb7e12041b81a26cdeea90a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  damage: 10
+  weapon: {fileID: 0}
+  lifeTime: 4
 --- !u!1 &4927917503454973316
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,10 +165,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7833334662443204630}
-  - component: {fileID: 2937566183065401519}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: BulletShotgun
+  m_TagString: BulletShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,16 +188,3 @@ Transform:
   - {fileID: 8873695734975604913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2937566183065401519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4927917503454973316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f05283eb7e12041b81a26cdeea90a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  lifeTime: 4

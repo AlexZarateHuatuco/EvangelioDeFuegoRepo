@@ -78,13 +78,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b20edc34de62942b7f6d6a7ee4f88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RifleShot
+  weaponName: 
+  damage: 25
+  weaponType: 0
+  currentAmmo: 30
+  maxAmmo: 30
+  fireRate: 10
   cam: {fileID: 0}
   firePoint: {fileID: 822986400134828032}
   bulletPrefab: {fileID: 4927917503454973316, guid: 50a6925c1e1c8e9488527c8a3fc03b32, type: 3}
-  fireRate: 10
-  magazineSize: 30
-  reloadTime: 2
   bulletSpeed: 30
+  reloadTime: 2
 --- !u!114 &1166631704634836963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponInfo
   weaponName: Rifle
-  weaponIcon: {fileID: 0}
-  rifleShot: {fileID: 2226583650838057793}
+  weaponIcon: {fileID: 21300000, guid: 8457a334943329f4ea3c01b3c6a5a994, type: 3}
+  weapon: {fileID: 2226583650838057793}
 --- !u!1001 &3402949584727792467
 PrefabInstance:
   m_ObjectHideFlags: 0

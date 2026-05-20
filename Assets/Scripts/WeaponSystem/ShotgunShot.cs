@@ -118,10 +118,12 @@ public class ShotgunShot : WeaponBase
     [Header("Disparo")]
     public int pellets = 8;
     public float spread = 5f;
-    public float fireRate = 1f;
 
     [Header("Bala")]
     public float bulletSpeed = 40f;
+
+    [Header("Recarga")]
+    public float reloadTime = 1.5f;
 
     private bool isReloading = false;
     private float fireCooldown = 0f;
@@ -129,31 +131,18 @@ public class ShotgunShot : WeaponBase
     protected override void Start()
     {
         base.Start();
-    }
-
-    void OnEnable()
-    {
-        isReloading = false;
+        weaponType = WeaponType.Shotgun;
     }
 
     void Update()
     {
-        if (isReloading)
-            return;
+        if (isReloading) return;
 
-        //Recarga automática
-        if (currentAmmo <= 0 && !isReloading)
-        {
+        if (currentAmmo <= 0)
             StartCoroutine(Reload());
-        }
 
-        //Cooldown
-        if (fireCooldown > 0f)
-        {
-            fireCooldown -= Time.deltaTime;
-        }
+        fireCooldown -= Time.deltaTime;
 
-        //Disparo
         if (Input.GetButtonDown("Fire1") &&
             fireCooldown <= 0f &&
             currentAmmo > 0)
@@ -167,61 +156,46 @@ public class ShotgunShot : WeaponBase
     {
         currentAmmo--;
 
-        //Dirección base desde el centro de cámara
-        Ray ray = cam.ViewportPointToRay(
-            new Vector3(0.5f, 0.5f, 0f)
-        );
-
-        Vector3 baseDirection = ray.direction;
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+        Vector3 baseDir = ray.direction;
 
         for (int i = 0; i < pellets; i++)
         {
-            //Spread real circular
-            Vector2 randomCircle =
-                Random.insideUnitCircle * spread;
+            Vector2 spreadVec = Random.insideUnitCircle * spread;
 
-            Vector3 direction =
-                Quaternion.Euler(
-                    randomCircle.y,
-                    randomCircle.x,
-                    0f
-                ) * baseDirection;
+            Vector3 dir = Quaternion.Euler(
+                spreadVec.y,
+                spreadVec.x,
+                0f
+            ) * baseDir;
 
-            //Crear bala
+            if (Physics.Raycast(firePoint.position, dir, out RaycastHit hit, 100f))
+            {
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
+                    if (enemy != null)
+                        enemy.TakeDamage(damage);
+                }
+            }
+
             GameObject bullet = Instantiate(
                 bulletPrefab,
                 firePoint.position,
-                Quaternion.LookRotation(direction)
+                Quaternion.LookRotation(dir)
             );
 
-            //Mover bala
-            Rigidbody rb =
-                bullet.GetComponentInChildren<Rigidbody>();
-
+            Rigidbody rb = bullet.GetComponentInChildren<Rigidbody>();
             if (rb != null)
-            {
-                rb.linearVelocity =
-                    direction.normalized * bulletSpeed;
-            }
-            else
-            {
-                Debug.LogError(
-                    "La bala no tiene Rigidbody"
-                );
-            }
+                rb.linearVelocity = dir.normalized * bulletSpeed;
         }
     }
 
     IEnumerator Reload()
     {
         isReloading = true;
-
         yield return new WaitForSeconds(reloadTime);
-
-        currentAmmo = magazineSize;
-
-        fireCooldown = 0f;
-
+        currentAmmo = maxAmmo;
         isReloading = false;
     }
 }
