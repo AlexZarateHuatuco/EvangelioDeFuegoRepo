@@ -963,8 +963,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2969004190377419540, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3058916138101537392, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
+      propertyPath: moveSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808296802791129939, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2034040816}
     - target: {fileID: 5858103188468241781, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.002
@@ -979,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5858103188468241781, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0357
+      value: -0.0927
       objectReference: {fileID: 0}
     - target: {fileID: 5858103188468241781, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1017,6 +1025,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6188258105307497561, guid: 2640a0436f4579e44a47dcc76541dd6f, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 2034040816}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
