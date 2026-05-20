@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 466895084342397403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42, y: 1, z: 0.26}
+  m_LocalPosition: {x: 0.42, y: 1.48, z: -0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3335455322716776846}
@@ -80,9 +80,10 @@ GameObject:
   - component: {fileID: 8086338827220379}
   - component: {fileID: 8585580148433116409}
   - component: {fileID: 3058916138101537392}
+  - component: {fileID: 2116630231667320644}
   - component: {fileID: 6188258105307497561}
-  - component: {fileID: 5808296802791129939}
   - component: {fileID: 6981226428772474401}
+  - component: {fileID: 4537947898161647016}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -225,11 +226,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188465e6006f7f34db1ef8c714560a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
+  moveSpeed: 1
   maxJumps: 2
-  jumpForce: 10
+  jumpForce: 1
   mouseSensitivity: 200
   cameraPivot: {fileID: 453431944986293830}
+--- !u!114 &2116630231667320644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993116266629341139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142425bd181ff554b80800131f40a71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  currentHealth: 3
+  maxHealth: 10
+  debugDamage: 2
 --- !u!114 &6188258105307497561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,28 +261,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   riflePrefab: {fileID: 2704968203399472567, guid: 7c3a745b3879e4b42a2118cbdce181cd, type: 3}
   shotgunPrefab: {fileID: 6775932939721563782, guid: 221960751517d0e4aa23e1c91ac3b786, type: 3}
+  GrenadeHandPrefab: {fileID: 6775932939721563782, guid: d3d0a98b1496daa42b60b1885398e07b, type: 3}
   weaponHolder: {fileID: 258178426581736153}
---- !u!114 &5808296802791129939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993116266629341139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5866c3dd8a52c4692830094bbafe20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrenadeThrow
-  grenadeSpeed: 50
-  magazineSize: 30
-  reloadTime: 2
-  cam: {fileID: 0}
-  firePoint: {fileID: 7702960806304992839}
-  grenadePrefab: {fileID: 6775932939721563782, guid: d3d0a98b1496daa42b60b1885398e07b, type: 3}
-  maxDistance: 50
-  arcHeight: 2.5
-  explosionRadius: 5
 --- !u!114 &6981226428772474401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +275,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586b7b4545b0b7a47a0fdc8089365b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeleportDebug
+--- !u!114 &4537947898161647016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993116266629341139}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793eabfdbbd05fc468d71c4b8b8c62b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrenadeThrow
+  weaponName: 
+  damage: 25
+  weaponType: 2
+  currentAmmo: 30
+  maxAmmo: 30
+  fireRate: 10
+  cam: {fileID: 0}
+  throwPoint: {fileID: 258178426581736153}
+  grenadePrefab: {fileID: 6775932939721563782, guid: d3d0a98b1496daa42b60b1885398e07b, type: 3}
+  throwForce: 20
+  grenadeCooldown: 3
+  explosionRadius: 6
+  grenadeDamage: 100
+  explosionDelay: 1.2
 --- !u!1 &7720816728751529302
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +343,7 @@ GameObject:
   - component: {fileID: 258178426581736153}
   m_Layer: 0
   m_Name: WeaponHolder
-  m_TagString: Untagged
+  m_TagString: WeaponHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,8 +390,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8954624123661984271}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000014901165, y: 0.00000011920929, z: 0.00000017881395}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00000017881393, y: 0.00000011920929, z: 0.0000058710575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
