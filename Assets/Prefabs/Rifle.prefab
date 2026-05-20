@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2259881217754118897}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 324, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.62, y: 0, z: 0}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2932703052517227704}
+  m_Father: {fileID: 94176152784725506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2704968203399472567
 GameObject:
@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94176152784725506}
   - component: {fileID: 2226583650838057793}
+  - component: {fileID: 1166631704634836963}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -61,6 +62,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 822986400134828032}
   - {fileID: 2932703052517227704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,6 +85,21 @@ MonoBehaviour:
   magazineSize: 30
   reloadTime: 2
   bulletSpeed: 30
+--- !u!114 &1166631704634836963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704968203399472567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc2cd12b40dfac4eb144fb69894b041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponInfo
+  weaponName: Rifle
+  weaponIcon: {fileID: 0}
+  rifleShot: {fileID: 2226583650838057793}
 --- !u!1001 &3402949584727792467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,10 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d1787d996532e14b9d179b2c3a55b98, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 822986400134828032}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d1787d996532e14b9d179b2c3a55b98, type: 3}
 --- !u!4 &2932703052517227704 stripped

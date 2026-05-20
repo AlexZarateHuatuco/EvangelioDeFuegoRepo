@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Referencias")]
+    /*[Header("Referencias")]
     public Transform player;
     public GameObject enemyPrefab;
 
@@ -128,5 +129,30 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Debug.LogWarning("No se encontró una posición válida para generar enemigos.");
+    }*/
+    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private Transform[] spawnPoints;
+
+    private int currentIndex;
+
+    public void SpawnEnemies(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            Generate();
+        }
+    }
+
+    private void Generate()
+    {
+        Transform point =
+            spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        GameObject enemy = Instantiate(
+            enemyPrefabs[currentIndex % enemyPrefabs.Count],
+            point.position,
+            Quaternion.identity);
+
+        currentIndex++;
     }
 }

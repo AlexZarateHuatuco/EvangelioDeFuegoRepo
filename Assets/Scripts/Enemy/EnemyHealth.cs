@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private SpawnDirector director;
-
+    //private SpawnDirector director;
+    public WaveManager waveManager;
     //Events
     public event Action OnEnemyDeath;
     public event Action OnEnemyDamaged;
@@ -14,8 +14,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float debugDamage = 2f;
     [SerializeField] private float currentHealth = 3f;
 
-    void Start()
+    private void Start()
     {
+        waveManager = FindObjectOfType<WaveManager>();
         currentHealth = maxHealth;
     }
 
@@ -42,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("Enemy have died.");
         OnEnemyDeath?.Invoke();
+        waveManager.EnemyKilled();
         Destroy(gameObject);
     }
 }
