@@ -1,79 +1,170 @@
+/*using UnityEngine;
+using System.Collections;
+
+public class GrenadeThrow : WeaponBase
+{
+
+    [Header("Disparo")]
+    public Camera playerCamera;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed = 30f;
+
+    [Header("Recarga")]
+    public float reloadTime = 2f;
+
+    private bool isReloading;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+    }
+
+    void Update()
+    {
+        if (isReloading)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.G) && currentAmmo > 0)
+        {
+            Shoot();
+        }
+
+        //if (currentAmmo <= 0)
+        //{
+            //StartCoroutine(Reload());
+        //}
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            StartCoroutine(Reload());
+        }
+    }
+
+    public override void Shoot()
+    {
+        if (currentAmmo <= 0)
+            return;
+
+        currentAmmo--;
+
+        Ray ray = playerCamera.ViewportPointToRay(
+            new Vector3(0.5f, 0.5f, 0)
+        );
+
+        Vector3 targetPoint;
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(100f);
+        }
+
+        Vector3 direction =
+            (targetPoint - firePoint.position).normalized;
+
+        GameObject bullet =
+            Instantiate(
+                bulletPrefab,
+                firePoint.position,
+                Quaternion.LookRotation(direction)
+            );
+
+        Rigidbody rb =
+            bullet.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity =
+                direction * bulletSpeed;
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+
+        isReloading = false;
+    }
+}*/
 using UnityEngine;
 using System.Collections;
 
 public class GrenadeThrow : WeaponBase
 {
-    public Camera cam;
+    [Header("Referencias")]
+    public Camera playerCamera;
     public Transform throwPoint;
     public GameObject grenadePrefab;
 
-    public float throwForce = 20f;
-    public float grenadeCooldown = 3f;
+    [Header("Lanzamiento")]
+    public float throwForce = 25f;
 
-    public float explosionRadius = 6f;
-    public float grenadeDamage = 100f;
-    public float explosionDelay = 1.2f;
+    [Header("Recarga")]
+    public float reloadTime = 2f;
 
-    private bool canThrow = true;
+    private bool isReloading;
 
     protected override void Start()
     {
         base.Start();
-        weaponType = WeaponType.Grenade;
+
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && canThrow)
+        if (isReloading)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
             Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            StartCoroutine(Reload());
+        }
     }
 
     public override void Shoot()
     {
-        canThrow = false;
+        if (currentAmmo <= 0)
+            return;
 
-        GameObject grenade = Instantiate(
-            grenadePrefab,
-            throwPoint.position,
-            Quaternion.identity
+        currentAmmo--;
+
+        GameObject grenade = 
+        Instantiate(
+        grenadePrefab,
+        throwPoint.position,
+        playerCamera.transform.rotation
         );
-
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
-        Vector3 dir = ray.direction + Vector3.up * 0.15f;
-
-        Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        if (rb != null)
-            rb.linearVelocity = dir.normalized * throwForce;
-
-        StartCoroutine(Explode(grenade));
-        StartCoroutine(Cooldown());
     }
 
-    IEnumerator Explode(GameObject grenade)
+    IEnumerator Reload()
     {
-        yield return new WaitForSeconds(explosionDelay);
+        isReloading = true;
 
-        Collider[] hits = Physics.OverlapSphere(
-            grenade.transform.position,
-            explosionRadius
-        );
+        yield return new WaitForSeconds(reloadTime);
 
-        foreach (Collider hit in hits)
-        {
-            if (hit.CompareTag("Enemy"))
-            {
-                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-                if (enemy != null)
-                    enemy.TakeDamage(grenadeDamage);
-            }
-        }
+        currentAmmo = maxAmmo;
 
-        Destroy(grenade);
-    }
-
-    IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(grenadeCooldown);
-        canThrow = true;
+        isReloading = false;
     }
 }

@@ -1,103 +1,6 @@
 /*using UnityEngine;
 using System.Collections;
 
-public class RifleShot : MonoBehaviour
-{
-    [Header("Referencias")]
-    public Camera cam;
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-
-    [Header("Disparo")]
-    public float fireRate = 10f;
-
-    [Header("Munición")]
-    public int magazineSize = 30;
-    public float reloadTime = 2f;
-
-    [Header("Bala")]
-    public float bulletSpeed = 50f;
-
-    private int currentAmmo;
-    float fireCooldown = 0f;
-    private bool isReloading = false;
-
-    void OnEnable()
-    {
-        isReloading = false;
-    }
-
-    void Start()
-    {
-        currentAmmo = magazineSize;
-    }
-
-    void Update()
-    {
-        if (isReloading)
-            return;
-
-        if (currentAmmo <= 0 && !isReloading)
-        {
-            StartCoroutine(Reload());
-        }
-
-        if (currentAmmo > 0 && isReloading)
-        {
-            isReloading = false;
-        }
-
-        if (fireCooldown > 0f)
-            fireCooldown -= Time.deltaTime;
-
-        if (Input.GetButton("Fire1") && fireCooldown <= 0f && currentAmmo > 0)
-        {
-            Shoot();
-            fireCooldown = 1f / fireRate;
-        }
-    }
-
-    void Shoot()
-    {
-        currentAmmo--;
-
-        //Dirección desde la cámara (centro pantalla)
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        Vector3 direction = ray.direction;
-
-        GameObject bullet = Instantiate(
-            bulletPrefab,
-            firePoint.position,
-            Quaternion.LookRotation(direction)
-        );
-
-        Rigidbody rb = bullet.GetComponentInChildren<Rigidbody>();
-
-        if (rb != null)
-        {
-            rb.linearVelocity = direction.normalized * bulletSpeed;
-        }
-        else
-        {
-            Debug.LogError("La bala no tiene Rigidbody");
-        }
-    }
-
-    IEnumerator Reload()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = magazineSize;
-        fireCooldown = 0f;
-        isReloading = false;
-    }
-
-    public int CurrentAmmo => currentAmmo;
-    public int MaxAmmo => magazineSize;
-}*/
-using UnityEngine;
-using System.Collections;
-
 public class RifleShot : WeaponBase
 {
     [Header("Referencias")]
@@ -169,6 +72,110 @@ public class RifleShot : WeaponBase
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
+        isReloading = false;
+    }
+}*/
+using UnityEngine;
+using System.Collections;
+
+public class RifleShot : WeaponBase
+{
+    [Header("Referencias")]
+    public Camera cam;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+
+    [Header("Bala")]
+    public float bulletSpeed = 50f;
+
+    [Header("Recarga")]
+    public float reloadTime = 1.5f;
+
+    private float fireCooldown = 0f;
+    private bool isReloading = false;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        weaponType = WeaponType.Rifle;
+
+        if (cam == null)
+        {
+            cam = Camera.main;
+
+            if (cam == null)
+            {
+                Debug.LogError("Rifle: No se encontró una cámara principal.");
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (isReloading)
+            return;
+
+        if (currentAmmo <= 0 && !isReloading)
+        {
+            StartCoroutine(Reload());
+        }
+
+        fireCooldown -= Time.deltaTime;
+
+        if (Input.GetButton("Fire1") &&
+            fireCooldown <= 0f &&
+            currentAmmo > 0)
+        {
+            Shoot();
+            fireCooldown = 1f / fireRate;
+        }
+    }
+
+    public override void Shoot()
+    {
+        currentAmmo--;
+
+        Ray ray = cam.ViewportPointToRay(
+            new Vector3(0.5f, 0.5f)
+        );
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
+
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
+            }
+        }
+
+        GameObject bullet = Instantiate(
+            bulletPrefab,
+            firePoint.position,
+            Quaternion.LookRotation(ray.direction)
+        );
+
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity =
+                ray.direction.normalized * bulletSpeed;
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+
         isReloading = false;
     }
 }

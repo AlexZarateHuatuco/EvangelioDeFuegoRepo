@@ -6,6 +6,18 @@ public class WeaponInfo : MonoBehaviour
     public string weaponName;
     public Sprite weaponIcon;
 
-    [Header("Weapon")]
     public WeaponBase weapon;
+
+    void Awake()
+    {
+        weapon = GetComponent<WeaponBase>();
+
+        if (weapon == null)
+        {
+            Debug.LogWarning(
+                gameObject.name +
+                " no tiene WeaponBase."
+            );
+        }
+    }
 }

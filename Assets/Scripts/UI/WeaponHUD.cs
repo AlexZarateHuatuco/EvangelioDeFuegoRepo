@@ -7,99 +7,113 @@ public class WeaponHUD : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI grenadeText;
+
+    [Header("Iconos")]
     public Image weaponIcon;
+    public Image grenadeIcon;
+
+    [Header("Sprite de granada")]
+    public Sprite grenadeSprite;
+
+    [Header("Jugador")]
+    public GameObject player;
 
     [Header("Granadas")]
-    public int grenades = 3;
+    public GrenadeThrow grenadeSystem;
 
     private WeaponInfo currentWeapon;
-    private Transform weaponHolder;
 
     void Start()
     {
-        //Buscar automáticamente el WeaponHolder
-        GameObject holder =
-            GameObject.FindGameObjectWithTag("WeaponHolder");
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
 
-        if (holder != null)
-        {
-            weaponHolder = holder.transform;
+            if (player == null)
+            {
+                Debug.LogError("No se encontró Player");
+                enabled = false;
+                return;
+            }
         }
-        else
+
+        if (grenadeSystem == null)
         {
-            Debug.LogError(
-                "No existe un objeto con el tag WeaponHolder"
-            );
+            grenadeSystem =
+                player.GetComponentInChildren<GrenadeThrow>(true);
+        }
+
+        if (grenadeIcon != null &&
+            grenadeSprite != null)
+        {
+            grenadeIcon.sprite =
+                grenadeSprite;
         }
     }
 
     void Update()
     {
-        if (weaponHolder == null)
-            return;
-
-        DetectWeapon();
+        DetectCurrentWeapon();
         UpdateHUD();
     }
 
-    void DetectWeapon()
+    void DetectCurrentWeapon()
     {
-        foreach (Transform child in weaponHolder)
-        {
-            //Detectar arma activa
-            if (child.gameObject.activeInHierarchy)
-            {
-                WeaponInfo weapon =
-                    child.GetComponent<WeaponInfo>();
+        currentWeapon = null;
 
-                if (weapon != null)
-                {
-                    currentWeapon = weapon;
-                    return;
-                }
+        WeaponInfo[] weapons =
+            player.GetComponentsInChildren<WeaponInfo>(true);
+
+        foreach (WeaponInfo weapon in weapons)
+        {
+            if (weapon == null)
+                continue;
+
+            if (weapon.weapon == null)
+                continue;
+
+            if (weapon.weapon.weaponType ==
+                WeaponType.Grenade)
+            {
+                continue;
+            }
+
+            if (weapon.gameObject.activeInHierarchy)
+            {
+                currentWeapon = weapon;
+                return;
             }
         }
     }
 
     void UpdateHUD()
     {
-        if (currentWeapon == null)
-            return;
-
-        //Actualizar munición
-        if (currentWeapon.weapon != null)
+        if (currentWeapon != null)
         {
             ammoText.text =
                 currentWeapon.weapon.CurrentAmmo +
                 "/" +
                 currentWeapon.weapon.MaxAmmo;
+
+            if (currentWeapon.weaponIcon != null)
+            {
+                weaponIcon.sprite =
+                    currentWeapon.weaponIcon;
+            }
         }
         else
         {
             ammoText.text = "--/--";
         }
 
-        //Actualizar granadas
-        grenadeText.text = grenades.ToString();
-
-        //Actualizar icono
-        if (currentWeapon.weaponIcon != null)
+        if (grenadeSystem != null)
         {
-            weaponIcon.sprite =
-                currentWeapon.weaponIcon;
+            grenadeText.text =
+                grenadeSystem.CurrentAmmo.ToString();
         }
-    }
-
-    public void AddGrenade(int amount)
-    {
-        grenades += amount;
-    }
-
-    public void UseGrenade()
-    {
-        if (grenades > 0)
+        else
         {
-            grenades--;
+            grenadeText.text = "0";
         }
     }
 }
