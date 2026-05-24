@@ -144,7 +144,7 @@ public class RifleShot : WeaponBase
         {
             if (hit.collider.CompareTag("Enemy"))
             {
-                EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
+                EnemiesHealth enemy = hit.collider.GetComponent<EnemiesHealth>();
 
                 if (enemy != null)
                 {
