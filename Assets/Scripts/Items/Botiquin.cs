@@ -3,27 +3,27 @@ using UnityEngine;
 
 public class Botiquin : Consumables
 {
-    public PlayerHealth player;
+    [SerializeField] private float healthAmount = 10f;
 
-    public Botiquin(PlayerHealth p) : base(p)
+    private void OnTriggerEnter(Collider other)
     {
-        this.player = p;
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("PlayerHealth"))
+        if (other.CompareTag("Player"))
         {
-            if(player.CurrentHealth < player.MaxHealth)
+            PlayerHealth player = other.GetComponent<PlayerHealth>();
+
+            if (player != null)
             {
-                PlayerEffect(player);
+                if (player.CurrentHealth < player.MaxHealth)
+                {
+                    PlayerEffect(player);
+                    Destroy(gameObject);
+                }
             }
         }
     }
 
     public override void PlayerEffect(PlayerHealth player)
     {
-        player.Heal(10);
-        Destroy(other.gameObject);
+        player.RecoverHealth(healthAmount);
     }
 }

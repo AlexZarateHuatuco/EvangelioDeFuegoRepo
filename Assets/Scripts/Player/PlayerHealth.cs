@@ -12,10 +12,10 @@ public class PlayerHealth : MonoBehaviour
     public static event Action OnPlayerDamaged;
 
     //Variables
-    [SerializeField] private float currentArmor = 10f;
-    [SerializeField] private float maxArmor = 10f;
-    [SerializeField] private float currentHealth = 10f;
-    [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private float currentArmor = 30f;
+    [SerializeField] private float maxArmor = 30f;
+    [SerializeField] private float currentHealth = 30f;
+    [SerializeField] private float maxHealth = 30f;
     [SerializeField] private float debugDamage = 1f;
 
     //Public variables
@@ -92,24 +92,6 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(debugDamage);
-        }
-
-        //Recuperar vida por objetos
-        //if (other.gameObject.CompareTag("Medkit"))
-        {
-            //Medkit medkit = other.GetComponent<Medkit>();
-            //if (medkit != null)
-            {
-                //currentHealth += medkit.Recovery;
-            }
-        }
-        //if (other.gameObject.CompareTag("Armor"))
-        {
-            //Armor armor = other.GetComponent<Armor>();
-            //if (armor != null)
-            {
-                //currentArmor += armor.Recovery;
-            }
         }
     }
 }

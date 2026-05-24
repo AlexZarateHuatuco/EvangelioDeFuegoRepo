@@ -3,27 +3,27 @@ using UnityEngine;
 
 public class Armor : Consumables
 {
-    public PlayerHealth player;
+    [SerializeField] private float armorAmount = 10f;
 
-    public Armor(PlayerHealth p) : base(p)
+    private void OnTriggerEnter(Collider other)
     {
-        this.player = p;
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("PlayerHealth"))
+        if (other.CompareTag("Player"))
         {
-            if (player.currentArmor < player.maxArmor)
+            PlayerHealth player = other.GetComponent<PlayerHealth>();
+
+            if (player != null)
             {
-                PlayerEffect(player);
+                if (player.CurrentArmor < player.MaxArmor)
+                {
+                    PlayerEffect(player);
+                    Destroy(gameObject);
+                }
             }
         }
     }
 
     public override void PlayerEffect(PlayerHealth player)
     {
-        player.RecoverArmor(10);
-        Destroy(other.gameObject);
+        player.RecoverArmor(armorAmount);
     }
 }
