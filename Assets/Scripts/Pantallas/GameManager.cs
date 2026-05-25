@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if (gameOverPanel != null) 
-            gameOverPanel.SetActive(false);
+ //           gameOverPanel.SetActive(false);
         if (restartButton != null) 
             restartButton.onClick.AddListener(resetScene);
         if (menuButton != null) 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         gameOverActive = true;
         if (gameOverPanel != null)
         {
-            gameOverPanel.SetActive(true);
+ //           gameOverPanel.SetActive(true);
         }
         if (gameOverText != null)
         {
