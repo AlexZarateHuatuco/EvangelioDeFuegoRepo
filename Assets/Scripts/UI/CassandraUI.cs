@@ -1,10 +1,10 @@
-using UnityEngine;
+/* UnityEngine;
 using TMPro;
 using System.Collections;
 
 public class CassandraUI : MonoBehaviour
 {
-    public static CassandraUI Instance;
+    /public static CassandraUI Instance;
 
     [Header("UI")]
     public GameObject panel;
@@ -136,4 +136,4 @@ public class CassandraUI : MonoBehaviour
     {
         panel.SetActive(false);
     }
-}
+}*/
