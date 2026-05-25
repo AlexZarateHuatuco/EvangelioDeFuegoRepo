@@ -12,11 +12,25 @@ public class PlayerHealth : MonoBehaviour
     public static event Action OnPlayerDamaged;
 
     //Variables
-    [SerializeField] private float currentHealth = 3f;
-    [SerializeField] private float maxHealth = 10f;
-    [SerializeField] private float debugDamage = 2f;
+    [SerializeField] private float currentArmor = 30f;
+    [SerializeField] private float maxArmor = 30f;
+    [SerializeField] private float currentHealth = 30f;
+    [SerializeField] private float maxHealth = 30f;
+    [SerializeField] private float debugDamage = 1f;
 
     //Public variables
+    public float CurrentArmor
+    {
+        get { return currentArmor; }
+        set { currentArmor = value; }
+    }
+
+    public float MaxArmor
+    {
+        get { return maxArmor; }
+        set { maxArmor = value; }
+    }
+
     public float CurrentHealth
     {
         get { return currentHealth; }
@@ -31,24 +45,37 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+        currentArmor = maxArmor;
         currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+        currentArmor -= damage;
+        currentArmor = Mathf.Clamp(currentArmor, 0f, maxArmor);
+        Debug.Log($"Player have recieved ({damage}). Current Armor: {currentArmor}");
+        if (currentArmor == 0)
+        {
+            currentHealth -= damage;
+            currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+            Debug.Log($"Player have recieved ({damage}). Current Health: {currentHealth}");
+        }
         OnPlayerDamaged?.Invoke();
-        Debug.Log($"Player have recieved ({damage}). Current Health: {currentHealth}");
         if (currentHealth <= 0f)
         {
             Die();
         }
     }
 
-    public void Heal(float amount)
+    public void RecoverHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0f, maxHealth);
+        OnPlayerDamaged?.Invoke();
+    }
+
+    public void RecoverArmor(float amount)
+    {
+        currentArmor = Mathf.Clamp(currentArmor + amount, 0f, maxArmor);
         OnPlayerDamaged?.Invoke();
     }
 
@@ -61,36 +88,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Si entramos en un hitbox enemigo
-        //if (other.CompareTag("Enemy"))
-        //{
-        //    HitboxDamage hit = other.GetComponent<HitboxDamage>();
-
-        //    if (hit != null)
-        //    {
-        //        Debug.Log($"Enemy '{other.name}' dealt: {hit.damageAmount}");
-        //        TakeDamage(hit.damageAmount);
-        //    }
-        //    else
-        //    {
-        //        Debug.LogWarning($"Enemy '{other.name}' doesn't have HitboxDamage.");
-        //    }
-        //}
-
         //Perder vida sin script de enemigo
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(debugDamage);
         }
-
-        //Recuperar vida por objetos
-        //if (other.gameObject.CompareTag("Medkit"))
-        //{
-        //    Medkit medkit = other.GetComponent<Medkit>();
-        //    if (medkit != null)
-        //    {
-        //        currentHealth += medkit.Recovery;
-        //    }
-        //}
     }
 }
