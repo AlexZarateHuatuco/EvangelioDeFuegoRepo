@@ -56,10 +56,32 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2733796544893659751}
     - targetCorrespondingSourceObject: {fileID: -7609145667655734672, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6850370719658409442}
   m_SourcePrefab: {fileID: 100100000, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}
+--- !u!1 &7940633557573351014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}
+  m_PrefabInstance: {fileID: 7130225119069834039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2733796544893659751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940633557573351014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b82ef771ab6154b831d4064193ba3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Armor
+  player: {fileID: 0}
+  armorAmount: 10
 --- !u!1 &8400699446770590023 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7609145667655734672, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}
