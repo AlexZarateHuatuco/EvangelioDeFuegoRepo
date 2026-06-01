@@ -1,204 +1,4 @@
-/*using UnityEngine;
 
-public class TutorialManager : MonoBehaviour
-{
-    public static TutorialManager Instance;
-
-    [Header("UI")]
-    public CassandraUI cassandraUI;
-    public HintUI hintUI;
-    public ObjectiveUI objectiveUI;
-
-    [Header("Tutorial State")]
-    public TutorialState currentState;
-
-    private bool weaponTutorialShown = false;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    private void Start()
-    {
-        SetState(TutorialState.WakeUp);
-    }
-
-    public void SetState(TutorialState newState)
-    {
-        currentState = newState;
-
-        switch (currentState)
-        {
-            case TutorialState.WakeUp:
-
-                objectiveUI.SetObjective(
-                    "ESCAPA DE LA IGLESIA"
-                );
-
-                hintUI.ShowHint(
-                    "",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "¿Me recibes?... Bien.",
-                    "Pensé que se había cortado la comunicación."
-                );
-
-                break;
-
-            case TutorialState.Move:
-
-                hintUI.ShowHint(
-                    "WASD - MOVERSE",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Muévete. El sector colapsará."
-                );
-
-                break;
-
-            case TutorialState.Run:
-
-                hintUI.ShowHint(
-                    "SHIFT - CORRER",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Corre. Ahora."
-                );
-
-                break;
-
-            case TutorialState.Jump:
-
-                hintUI.ShowHint(
-                    "SPACE - SALTAR",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Salta o muere."
-                );
-
-                break;
-
-            case TutorialState.FirstCombat:
-
-                objectiveUI.SetObjective(
-                    "ELIMINA AL DEMONIO"
-                );
-
-                hintUI.ShowHint(
-                    "CLICK IZQUIERDO - DISPARAR",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Movimiento al frente. No dudes."
-                );
-
-                break;
-
-            case TutorialState.WeaponSwitch:
-
-                objectiveUI.SetObjective(
-                    "CAMBIA DE ARMA"
-                );
-
-                hintUI.ShowHint(
-                    "X - CAMBIAR ARMA",
-                    4f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "El rifle no penetrará ese escudo.",
-                    "Puedes usar tu escopeta o las granadas"
-                );
-
-                break;
-
-            case TutorialState.Power:
-
-                objectiveUI.SetObjective(
-                    "USA EL FUEGO SAGRADO"
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "...Eso no debería existir."
-                );
-
-                break;
-
-            case TutorialState.Boss:
-
-                objectiveUI.SetObjective(
-                    "DERROTA AL HERALDO INFERNAL"
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Esa cosa controla esta área."
-                );
-
-                break;
-
-            case TutorialState.Finished:
-
-                objectiveUI.SetObjective(
-                    "TUTORIAL COMPLETADO"
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Heraldo derrotado, buen trabajo.",
-                    "Ahora adéntrate en el pueblo",
-                    "y busca al General de esta Invasión."
-                );
-
-                break;
-        }
-    }
-
-    public void WrongWeaponUsed()
-    {
-        if (weaponTutorialShown)
-            return;
-
-        weaponTutorialShown = true;
-
-        SetState(TutorialState.WeaponSwitch);
-
-        cassandraUI.ShowDialogue(
-            "CASSANDRA",
-            "Cambia de arma. Ahora."
-        );
-    }
-}
-
-public enum TutorialState
-{
-    WakeUp,
-    Move,
-    Run,
-    Jump,
-    FirstCombat,
-    WeaponSwitch,
-    Power,
-    Boss,
-    Finished
-}*/
 using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
@@ -239,56 +39,28 @@ public class TutorialManager : MonoBehaviour
                 );
 
                 hintUI.ShowHint(
-                    "",
-                    3f
+                    "WASD - MOVERSE",
+                    4f
                 );
 
                 cassandraUI.ShowDialogue(
                     "CASSANDRA",
                     "¿Me recibes?... Bien.",
-                    "Pensé que se había cortado la comunicación."
+                    "Pensé que se había cortado la comunicación.",
+                    "Muévete, debemos cerrar el portal."
                 );
 
                 break;
 
-            case TutorialState.Move:
+            case TutorialState.RoomClose:
 
-                hintUI.ShowHint(
-                    "WASD - MOVERSE",
-                    3f
+                objectiveUI.SetObjective(
+                    "LIBERA LA ZONA"
                 );
 
                 cassandraUI.ShowDialogue(
                     "CASSANDRA",
-                    "Muévete. El sector colapsará."
-                );
-
-                break;
-
-            case TutorialState.Run:
-
-                hintUI.ShowHint(
-                    "SHIFT - CORRER",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Corre. Ahora."
-                );
-
-                break;
-
-            case TutorialState.Jump:
-
-                hintUI.ShowHint(
-                    "SPACE - SALTAR",
-                    3f
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "Salta o muere."
+                    "Para liberar este cuarto necesitas derrotar a todos los enemigos de la sala."
                 );
 
                 break;
@@ -301,12 +73,13 @@ public class TutorialManager : MonoBehaviour
 
                 hintUI.ShowHint(
                     "CLICK IZQUIERDO - DISPARAR",
-                    3f
+                    4f
                 );
 
                 cassandraUI.ShowDialogue(
                     "CASSANDRA",
-                    "Movimiento al frente. No dudes."
+                    "Uso de armas básicas autorizado",
+                    "Puedes usar tu rifle para eliminarlos."
                 );
 
                 break;
@@ -324,28 +97,14 @@ public class TutorialManager : MonoBehaviour
 
                 cassandraUI.ShowDialogue(
                     "CASSANDRA",
-                    "El rifle no penetrará ese escudo.",
+                    "Enemigo nuevo identificado",
+                    "El rifle no penetrará su escudo.",
                     "Puedes usar tu escopeta o las granadas"
                 );
 
                 break;
 
-            /*
-            case TutorialState.Power:
-
-                objectiveUI.SetObjective(
-                    "USA EL FUEGO SAGRADO"
-                );
-
-                cassandraUI.ShowDialogue(
-                    "CASSANDRA",
-                    "...Eso no debería existir."
-                );
-
-                break;
-            */
-
-            case TutorialState.Boss:
+            case TutorialState.MiniBoss:
 
                 objectiveUI.SetObjective(
                     "DERROTA AL HERALDO INFERNAL"
@@ -372,6 +131,34 @@ public class TutorialManager : MonoBehaviour
                 );
 
                 break;
+
+            case TutorialState.SecretRoom:
+
+                objectiveUI.SetObjective(
+                    "CUARTO SECRETO ENCONTRADO"
+                );
+
+                cassandraUI.ShowDialogue(
+                    "CASSANDRA",
+                    "Vaya, encontraste un cuarto secreto",
+                    "Veamos que ocultaron aquí"
+                );
+
+                break;
+
+            case TutorialState.BossLair:
+
+                objectiveUI.SetObjective(
+                    "SALA DE JEFE APROXIMÁNDOSE"
+                );
+
+                cassandraUI.ShowDialogue(
+                    "CASSANDRA",
+                    "Estás acercándote a la guarida del General",
+                    "Asegúrate de estar preparado"
+                );
+
+                break;
         }
     }
 
@@ -390,7 +177,7 @@ public class TutorialManager : MonoBehaviour
 
         cassandraUI.ShowDialogue(
             "CASSANDRA",
-            "Cambia de arma. Ahora."
+            "Esa arma es inutil contra este enemigo, cambia de arma."
         );
     }
 
@@ -430,12 +217,11 @@ public class TutorialManager : MonoBehaviour
 public enum TutorialState
 {
     WakeUp,
-    Move,
-    Run,
-    Jump,
     FirstCombat,
     WeaponSwitch,
-    Power,
-    Boss,
-    Finished
+    RoomClose,
+    MiniBoss,
+    Finished,
+    SecretRoom,
+    BossLair
 }

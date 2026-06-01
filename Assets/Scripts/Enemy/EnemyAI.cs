@@ -97,41 +97,54 @@ public class EnemyAI : MonoBehaviour
 }*/
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Target")]
     public Transform player;
 
-    [Header("Detección")]
+    [Header("Detection")]
     public float visionRange = 15f;
     public LayerMask obstacleMask;
 
-    [Header("Movimiento")]
+    [Header("Combat")]
+    public float attackRange = 2.5f;
+    public float attackAngle = 20f;
+
+    [Header("Movement")]
     public float moveSpeed = 3f;
-    public float rotationSpeed = 5f;
+
+    [Tooltip("Grados por segundo")]
+    public float rotationSpeed = 90f;
 
     private Rigidbody rb;
     private bool isAlerted = false;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObj != null)
+            player = playerObj.transform;
+        else
+            Debug.LogWarning("No se encontró el Player");
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (player == null) return;
+        if (player == null)
+            return;
 
         if (!isAlerted)
             DetectPlayer();
 
         if (isAlerted)
-            Move();
+            UpdateMovement();
     }
 
-    void DetectPlayer()
+    private void DetectPlayer()
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -140,37 +153,75 @@ public class EnemyAI : MonoBehaviour
             Vector3 dir = (player.position - transform.position).normalized;
 
             if (!Physics.Raycast(transform.position, dir, distance, obstacleMask))
+            {
                 isAlerted = true;
+            }
         }
     }
 
-    void Move()
+    private void UpdateMovement()
     {
         Vector3 direction = player.position - transform.position;
-        direction.y = 0;
+        direction.y = 0f;
 
-        if (direction != Vector3.zero)
+        float distance = direction.magnitude;
+
+        if (direction.sqrMagnitude < 0.01f)
+            return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        Quaternion newRotation = Quaternion.RotateTowards(
+            rb.rotation,
+            targetRotation,
+            rotationSpeed * Time.fixedDeltaTime
+        );
+
+        rb.MoveRotation(newRotation);
+
+        float angleToPlayer = Vector3.Angle(transform.forward, direction);
+
+        bool facingPlayer = angleToPlayer <= attackAngle;
+
+        if (distance > attackRange)
         {
-            Quaternion targetRot = Quaternion.LookRotation(direction);
-            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, rotationSpeed * Time.fixedDeltaTime));
+            if (facingPlayer)
+            {
+                Vector3 moveDir = direction.normalized;
+
+                rb.MovePosition(
+                    rb.position +
+                    moveDir * moveSpeed * Time.fixedDeltaTime
+                );
+            }
         }
-
-        Vector3 moveDir = direction.normalized;
-        rb.MovePosition(rb.position + moveDir * moveSpeed * Time.fixedDeltaTime);
+        else
+        {
+            if (facingPlayer)
+            {
+                Attack();
+            }
+        }
     }
 
-    public bool IsAlerted()
+    private void Attack()
     {
-        return isAlerted;
-    }
-
-    public Transform GetPlayer()
-    {
-        return player;
+        Debug.Log("Atacando");
     }
 
     public void Alert()
     {
         isAlerted = true;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, visionRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+#endif
 }
