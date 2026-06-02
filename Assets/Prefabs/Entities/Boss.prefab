@@ -348,10 +348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
-  bulletTag: BulletShotgun
-  maxHealth: 2
+  isBoss: 1
   currentHealth: 2
-  isBoss: 0
+  maxHealth: 2
 --- !u!195 &7771894316041644020
 NavMeshAgent:
   m_ObjectHideFlags: 0

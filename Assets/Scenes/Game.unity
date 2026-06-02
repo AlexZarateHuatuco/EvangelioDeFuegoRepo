@@ -971,6 +971,8 @@ MonoBehaviour:
   currentWave: 0
   baseEnemies: 5
   timeBetweenWaves: 5
+  enemiesAlive: 0
+  waveInProgress: 0
   spawner: {fileID: 0}
   waveText: {fileID: 1667392840}
   enemiesText: {fileID: 2078903032}
@@ -1005,6 +1007,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 2969004190377419540, guid: 8b68eac5427278a4abc154a5e9ca3839, type: 3}
   - {fileID: 2969004190377419540, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
+  spawnPoints: []
+  currentIndex: 0
 --- !u!4 &300438067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6503334684466261282, guid: 56653075df5ec4d46aad8b3834c750a7, type: 3}
@@ -2946,7 +2950,7 @@ PrefabInstance:
       objectReference: {fileID: 671066580}
     - target: {fileID: 4503290695357223478, guid: a5378639df881ab4d96a0b72f319f356, type: 3}
       propertyPath: m_VersionIndex
-      value: 239
+      value: 287
       objectReference: {fileID: 0}
     - target: {fileID: 5559797404118604094, guid: a5378639df881ab4d96a0b72f319f356, type: 3}
       propertyPath: m_Mesh
@@ -6640,6 +6644,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 2969004190377419540, guid: 8b68eac5427278a4abc154a5e9ca3839, type: 3}
   - {fileID: 2969004190377419540, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
+  spawnPoints: []
+  currentIndex: 0
 --- !u!1 &2034040814
 GameObject:
   m_ObjectHideFlags: 0
@@ -8030,7 +8036,7 @@ PrefabInstance:
       objectReference: {fileID: 1233415640}
     - target: {fileID: 1740225480353275753, guid: b418e1579de27604598e999b2a32178f, type: 3}
       propertyPath: m_VersionIndex
-      value: 186
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 5929683693449042296, guid: b418e1579de27604598e999b2a32178f, type: 3}
       propertyPath: m_LocalPosition.x

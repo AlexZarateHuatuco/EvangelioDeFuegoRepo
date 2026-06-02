@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 564559850489456395}
   - component: {fileID: 7140336505930842038}
   - component: {fileID: 8548226972135442722}
+  - component: {fileID: 7746065183289856576}
   - component: {fileID: 7499583676949553005}
   - component: {fileID: 1708513992924142025}
   m_Layer: 0
@@ -287,10 +288,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
-  bulletTag: BulletRifle
-  maxHealth: 2
   currentHealth: 2
-  isBoss: 0
+  maxHealth: 2
+--- !u!114 &7746065183289856576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e2f26bc56f76c4f9615acc9e770e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCounter
 --- !u!195 &7499583676949553005
 NavMeshAgent:
   m_ObjectHideFlags: 0
