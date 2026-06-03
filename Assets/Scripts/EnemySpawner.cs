@@ -1,9 +1,12 @@
+using Action = System.Action;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public Action OnSpawnerFinished;
+
     [System.Serializable]
     public class EnemyType
     {
@@ -91,6 +94,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         IsFinished = true;
+        OnSpawnerFinished?.Invoke();
     }
 
     void SpawnWave(int amount)

@@ -968,15 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681e3442cbdbe6f43a5ed5a12f3db955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  currentWave: 0
-  baseEnemies: 5
-  timeBetweenWaves: 5
-  enemiesAlive: 0
-  waveInProgress: 0
-  spawner: {fileID: 0}
-  waveText: {fileID: 1667392840}
-  enemiesText: {fileID: 2078903032}
-  countdownText: {fileID: 1443578807}
 --- !u!4 &224089881
 Transform:
   m_ObjectHideFlags: 0
@@ -1004,11 +995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7217356e6cfe38d4193269d7f975067e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerManager
-  enemyPrefabs:
-  - {fileID: 2969004190377419540, guid: 8b68eac5427278a4abc154a5e9ca3839, type: 3}
-  - {fileID: 2969004190377419540, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
-  spawnPoints: []
-  currentIndex: 0
 --- !u!4 &300438067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6503334684466261282, guid: 56653075df5ec4d46aad8b3834c750a7, type: 3}
@@ -2950,7 +2936,7 @@ PrefabInstance:
       objectReference: {fileID: 671066580}
     - target: {fileID: 4503290695357223478, guid: a5378639df881ab4d96a0b72f319f356, type: 3}
       propertyPath: m_VersionIndex
-      value: 287
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 5559797404118604094, guid: a5378639df881ab4d96a0b72f319f356, type: 3}
       propertyPath: m_Mesh
@@ -4677,17 +4663,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5231943392355140924, guid: 1650cd91dd6b186429da1253cf099335, type: 3}
   m_PrefabInstance: {fileID: 6102877652295037622}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1443578807 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2418235299625405852, guid: 12c64d0f919df9a4688be1883cc54dc7, type: 3}
-  m_PrefabInstance: {fileID: 1745753006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!43 &1458831713
 Mesh:
   m_ObjectHideFlags: 0
@@ -5875,17 +5850,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!114 &1667392840 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5524236686520967475, guid: 12c64d0f919df9a4688be1883cc54dc7, type: 3}
-  m_PrefabInstance: {fileID: 1745753006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!4 &1682126902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4656141280417990664, guid: a2871eedfcccf884d8636677d973f3b8, type: 3}
@@ -6641,11 +6605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7217356e6cfe38d4193269d7f975067e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerManager
-  enemyPrefabs:
-  - {fileID: 2969004190377419540, guid: 8b68eac5427278a4abc154a5e9ca3839, type: 3}
-  - {fileID: 2969004190377419540, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
-  spawnPoints: []
-  currentIndex: 0
 --- !u!1 &2034040814
 GameObject:
   m_ObjectHideFlags: 0
@@ -7051,17 +7010,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!114 &2078903032 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6178002346295807622, guid: 12c64d0f919df9a4688be1883cc54dc7, type: 3}
-  m_PrefabInstance: {fileID: 1745753006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &2089811582 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3909280343040281208, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
@@ -9195,6 +9143,10 @@ PrefabInstance:
       objectReference: {fileID: 6099800089077584851, guid: 578af0e2cb21e3f4cb642b555136a71f, type: 3}
     - target: {fileID: 514625106772260281, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 514625106772260281, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1122007687573112314, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
