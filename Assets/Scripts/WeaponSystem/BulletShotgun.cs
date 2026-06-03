@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 }*/
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletShotgun : MonoBehaviour
 {
     [Header("Movement")]
     public float speed = 40f;
@@ -54,15 +54,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+        EnemyHealthShotgun enemyShotgun = other.GetComponent<EnemyHealthShotgun>();
 
-        if (enemy != null)
+        if (enemyShotgun != null)
         {
-            enemy.TakeDamage(damage);
-
+            enemyShotgun.TakeDamage(damage);
             Destroy(gameObject);
         }
-        if (other.CompareTag("Enemy") || other.CompareTag("Wall"))
+        if (other.CompareTag("EnemyShotgun")  || other.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }

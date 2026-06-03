@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3674251848956456128}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Enemy
+  m_TagString: EnemyShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,13 +177,13 @@ GameObject:
   - component: {fileID: 5858103188468241781}
   - component: {fileID: 564559850489456395}
   - component: {fileID: 7140336505930842038}
-  - component: {fileID: 8548226972135442722}
+  - component: {fileID: 5344798968032243427}
   - component: {fileID: 3941989764744700162}
   - component: {fileID: 7714995470413488774}
   - component: {fileID: 7650044683740087533}
   m_Layer: 0
   m_Name: EnemyShotgun
-  m_TagString: Untagged
+  m_TagString: EnemyShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   attackAngle: 20
   moveSpeed: 3
   rotationSpeed: 90
---- !u!114 &8548226972135442722
+--- !u!114 &5344798968032243427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,12 +263,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2969004190377419540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
+  m_Script: {fileID: 11500000, guid: e67eb33af3fff2244828d57928da912c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthShotgun
+  bulletTag: BulletShotgun
   isBoss: 0
-  currentHealth: 2
-  maxHealth: 2
+  currentHealth: 0
+  maxHealth: 10
 --- !u!114 &3941989764744700162
 MonoBehaviour:
   m_ObjectHideFlags: 0

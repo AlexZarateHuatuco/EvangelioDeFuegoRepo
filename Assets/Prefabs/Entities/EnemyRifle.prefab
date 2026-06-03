@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 3674251848956456128}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Enemy
+  m_TagString: EnemyRifle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 1708513992924142025}
   m_Layer: 0
   m_Name: EnemyRifle
-  m_TagString: Untagged
+  m_TagString: EnemyRifle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
+  bulletTag: BulletRifle
+  isBoss: 0
   currentHealth: 2
   maxHealth: 2
 --- !u!114 &7746065183289856576

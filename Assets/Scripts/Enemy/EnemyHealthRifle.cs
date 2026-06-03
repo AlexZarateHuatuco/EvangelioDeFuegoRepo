@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealthRifle : MonoBehaviour
 {
 
     // Events
     public event Action OnEnemyDeath;
     public event Action OnEnemyDamaged;
 
-    private string bulletTag;
+    [SerializeField] private string bulletTag;
     [SerializeField] private bool isBoss = false;
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth = 10f;
@@ -26,9 +26,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(bulletTag))
+        if (other.CompareTag("BulletRifle"))
         {
-            Bullet bullet = other.GetComponent<Bullet>();
+            BulletRifle bullet = other.GetComponent<BulletRifle>();
 
             if (bullet != null)
             {

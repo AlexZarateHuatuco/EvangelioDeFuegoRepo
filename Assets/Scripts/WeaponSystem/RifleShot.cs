@@ -121,6 +121,12 @@ public class RifleShot : WeaponBase
             StartCoroutine(Reload());
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            currentAmmo = MaxAmmo;
+            isReloading = false;
+        }
+
         fireCooldown -= Time.deltaTime;
 
         if (Input.GetButton("Fire1") &&
@@ -142,13 +148,13 @@ public class RifleShot : WeaponBase
 
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (hit.collider.CompareTag("EnemyRifle"))
             {
-                EnemiesHealth enemy = hit.collider.GetComponent<EnemiesHealth>();
+                EnemyHealthRifle enemyRifle = hit.collider.GetComponent<EnemyHealthRifle>();
 
-                if (enemy != null)
+                if (enemyRifle != null)
                 {
-                    enemy.TakeDamage(damage);
+                    enemyRifle.TakeDamage(damage);
                 }
             }
         }

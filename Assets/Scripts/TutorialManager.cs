@@ -15,6 +15,8 @@ public class TutorialManager : MonoBehaviour
 
     private bool weaponTutorialShown = false;
     private bool firstEnemyKilled = false;
+    private bool bossKilled = false;
+    private bool mainBossKilled = false;
 
     private void Awake()
     {
@@ -189,7 +191,10 @@ public class TutorialManager : MonoBehaviour
     {
         Debug.Log("Enemy damaged.");
     }
-
+    public void BossDamaged()
+    {
+        Debug.Log("Boss damaged.");
+    }
     // =========================================================
     // ENEMY KILLED
     // =========================================================
@@ -212,6 +217,44 @@ public class TutorialManager : MonoBehaviour
             );
         }
     }
+
+    public void BossKilled()
+    {
+        if (bossKilled)
+            return;
+
+        firstEnemyKilled = true;
+
+        Debug.Log("Boss killed.");
+
+        if (currentState == TutorialState.MiniBossDefeat)
+        {
+            cassandraUI.ShowDialogue(
+                "CASSANDRA",
+                "Mini Jefe eliminado.",
+                "Continúa avanzando."
+            );
+        }
+    }
+
+    public void MainBossKilled()
+    {
+        if (mainBossKilled)
+            return;
+
+        firstEnemyKilled = true;
+
+        Debug.Log("Boss killed.");
+
+        if (currentState == TutorialState.BossDefeat)
+        {
+            cassandraUI.ShowDialogue(
+                "CASSANDRA",
+                "General eliminado.",
+                "Expulsión de demonios completada."
+            );
+        }
+    }
 }
 
 public enum TutorialState
@@ -221,7 +264,9 @@ public enum TutorialState
     WeaponSwitch,
     RoomClose,
     MiniBoss,
+    MiniBossDefeat,
     Finished,
     SecretRoom,
-    BossLair
+    BossLair,
+    BossDefeat
 }

@@ -120,12 +120,18 @@ public class Grenade : MonoBehaviour
 
         foreach (Collider hit in hits)
         {
-            EnemyHealth enemy =
-                hit.GetComponent<EnemyHealth>();
+            EnemyHealthRifle enemyRifle =
+                hit.GetComponent<EnemyHealthRifle>();
+            EnemyHealthShotgun enemyShotgun =
+                hit.GetComponent<EnemyHealthShotgun>();
 
-            if (enemy != null)
+            if (enemyRifle != null)
             {
-                enemy.TakeDamage(damage);
+                enemyRifle.TakeDamage(damage);
+            }
+            if (enemyShotgun != null)
+            {
+                enemyShotgun.TakeDamage(damage);
             }
         }
 
