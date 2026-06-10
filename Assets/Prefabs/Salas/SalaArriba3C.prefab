@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 332417971329846773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.3, y: 0.0066, z: -49.5}
+  m_LocalPosition: {x: 40.3, y: 4.8, z: -49.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 908961172279978731}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.3, y: 0.0066, z: -49.8}
+  m_LocalPosition: {x: -10.3, y: 4.8, z: -49.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,11 +90,11 @@ Transform:
   m_GameObject: {fileID: 1029297307713193734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.0339, y: 4.4953, z: -0.48}
+  m_LocalPosition: {x: 3.7338998, y: 4.4953, z: 20.12}
   m_LocalScale: {x: 10.014193, y: 9.990464, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4260787452129474472}
+  m_Father: {fileID: 7567712295375195307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6200844277871510580
 MeshFilter:
@@ -555,7 +555,7 @@ Transform:
   m_GameObject: {fileID: 5608914054617568930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 67.1, y: 0.0066, z: -36.3}
+  m_LocalPosition: {x: 67.1, y: 4.8, z: -36.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 7996863589448987839}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.3, y: 0.0066, z: -25.341003}
+  m_LocalPosition: {x: 40.3, y: 4.8, z: -25.341003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,7 +610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1881673464999978033
 Transform:
   m_ObjectHideFlags: 0
@@ -620,11 +620,11 @@ Transform:
   m_GameObject: {fileID: 8502853970006167723}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70.3, y: 4.4953, z: -35.1734}
+  m_LocalPosition: {x: 69, y: 4.4953, z: -14.5734005}
   m_LocalScale: {x: 0.92931706, y: 9.990464, z: 10.098472}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4260787452129474472}
+  m_Father: {fileID: 7567712295375195307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8631330812503820926
 MeshFilter:
@@ -913,12 +913,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a42d5869f06d98418f8974f5d65fefb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7663902500297611818}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a42d5869f06d98418f8974f5d65fefb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 336360059362519031}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a42d5869f06d98418f8974f5d65fefb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1881673464999978033}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a42d5869f06d98418f8974f5d65fefb, type: 3}
       insertIndex: -1
@@ -1964,7 +1958,13 @@ PrefabInstance:
       objectReference: {fileID: 1029297307713193734}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1222330461796709841, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 336360059362519031}
+    - targetCorrespondingSourceObject: {fileID: 1222330461796709841, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1881673464999978033}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
 --- !u!4 &7567712295375195307 stripped

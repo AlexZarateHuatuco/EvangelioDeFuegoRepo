@@ -181,6 +181,8 @@ GameObject:
   - component: {fileID: 3941989764744700162}
   - component: {fileID: 7714995470413488774}
   - component: {fileID: 7650044683740087533}
+  - component: {fileID: 1279279419254770377}
+  - component: {fileID: 6165524927369388971}
   m_Layer: 0
   m_Name: EnemyShotgun
   m_TagString: EnemyShotgun
@@ -325,3 +327,40 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.71428573
   m_Center: {x: -0.14285715, y: 0.071428575, z: 0.42857146}
+--- !u!114 &1279279419254770377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba59ee78b675dad479a55483e459cb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RangedMovement
+  player: {fileID: 0}
+  moveSpeed: 3
+  attackRange: 6
+  minRange: 4
+  attackCooldown: 1.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundRayLength: 0.2
+--- !u!114 &6165524927369388971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8f7a6a94da8f442b1eefb4aae884a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
+  bulletPrefab: {fileID: 4927917503454973316, guid: 358533b1840e6ef4caacb076eba06edf, type: 3}
+  firePoint: {fileID: 3674251848956456128}
+  fireRate: 2
+  detectionRange: 15
