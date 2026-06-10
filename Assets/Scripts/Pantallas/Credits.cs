@@ -9,7 +9,7 @@ public class Credits : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.anyKeyDown)
         {
             SceneManager.LoadScene("MenuInicio");
         }
