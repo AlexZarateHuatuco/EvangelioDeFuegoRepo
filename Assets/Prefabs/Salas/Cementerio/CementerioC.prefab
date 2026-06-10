@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8846260223696481603
 Transform:
   m_ObjectHideFlags: 0
@@ -4923,7 +4923,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1222330461796709841, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -68.30502
+      value: -88.2
       objectReference: {fileID: 0}
     - target: {fileID: 1222330461796709841, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4931,7 +4931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1222330461796709841, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 75.13758
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 1222330461796709841, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4966,12 +4966,20 @@ PrefabInstance:
       value: SpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: enemiesPerWave.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
@@ -4999,11 +5007,19 @@ PrefabInstance:
       objectReference: {fileID: 3212950770661734065}
     - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: 'enemiesPerWave.Array.data[0]'
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
       propertyPath: 'enemiesPerWave.Array.data[1]'
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590259091778390050, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
+      propertyPath: enemyPrefabs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 5018138463371535661}
+    - target: {fileID: 6798873047221721358, guid: 2d1b7257954e1f249b78ed5a04014414, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5591,6 +5607,11 @@ PrefabInstance:
 --- !u!4 &4457488321623364428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5858103188468241781, guid: 5fe9fe5d8d5cf5b458d9664f5bb26f00, type: 3}
+  m_PrefabInstance: {fileID: 7822761129639904825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5018138463371535661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2969004190377419540, guid: 5fe9fe5d8d5cf5b458d9664f5bb26f00, type: 3}
   m_PrefabInstance: {fileID: 7822761129639904825}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7915964818046437227

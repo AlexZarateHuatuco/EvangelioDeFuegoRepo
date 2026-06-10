@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3674251848956456128}
+  - component: {fileID: 7420931249744760969}
   m_Layer: 0
   m_Name: Body
   m_TagString: EnemyShotgun
@@ -62,6 +63,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5858103188468241781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7420931249744760969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507201267312841352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8f7a6a94da8f442b1eefb4aae884a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
+  bulletPrefab: {fileID: 579613770076380826, guid: bcf3e52fb870ec441a0018cee333d336, type: 3}
+  firePoint: {fileID: 3674251848956456128}
+  fireRate: 2
+  detectionRange: 15
 --- !u!1 &2608538102844597802
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,8 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthShotgun
   bulletTag: BulletShotgun
   isBoss: 0
-  currentHealth: 0
-  maxHealth: 10
+  currentHealth: 2
+  maxHealth: 2
 --- !u!114 &3941989764744700162
 MonoBehaviour:
   m_ObjectHideFlags: 0

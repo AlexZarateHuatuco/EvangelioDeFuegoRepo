@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 7499583676949553005}
   - component: {fileID: 1708513992924142025}
   - component: {fileID: 8971105429313210787}
+  - component: {fileID: 6496646442127481170}
   m_Layer: 0
   m_Name: EnemyRifle
   m_TagString: EnemyRifle
@@ -369,3 +370,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundRayLength: 0.2
+--- !u!114 &6496646442127481170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8f7a6a94da8f442b1eefb4aae884a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
+  bulletPrefab: {fileID: 579613770076380826, guid: bcf3e52fb870ec441a0018cee333d336, type: 3}
+  firePoint: {fileID: 3674251848956456128}
+  fireRate: 2
+  detectionRange: 15

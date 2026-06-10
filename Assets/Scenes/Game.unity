@@ -4947,7 +4947,7 @@ PrefabInstance:
       objectReference: {fileID: 319728056}
     - target: {fileID: 1353418257946068190, guid: 4517df082aca58449a0d6c7272a0bf9f, type: 3}
       propertyPath: m_VersionIndex
-      value: 182
+      value: 191
       objectReference: {fileID: 0}
     - target: {fileID: 1555048128948115524, guid: 4517df082aca58449a0d6c7272a0bf9f, type: 3}
       propertyPath: m_Name
@@ -7411,7 +7411,7 @@ PrefabInstance:
       objectReference: {fileID: 1171246585}
     - target: {fileID: 7533744599734735274, guid: 7d6cd0df98543ec4895b91f66b885288, type: 3}
       propertyPath: m_VersionIndex
-      value: 247
+      value: 268
       objectReference: {fileID: 0}
     - target: {fileID: 7716187813454324792, guid: 7d6cd0df98543ec4895b91f66b885288, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7992,7 +7992,7 @@ PrefabInstance:
       objectReference: {fileID: 1233415640}
     - target: {fileID: 1740225480353275753, guid: b418e1579de27604598e999b2a32178f, type: 3}
       propertyPath: m_VersionIndex
-      value: 462
+      value: 537
       objectReference: {fileID: 0}
     - target: {fileID: 5929683693449042296, guid: b418e1579de27604598e999b2a32178f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8069,7 +8069,7 @@ PrefabInstance:
       objectReference: {fileID: 1977334503}
     - target: {fileID: 4746482944176708261, guid: 1650cd91dd6b186429da1253cf099335, type: 3}
       propertyPath: m_VersionIndex
-      value: 182
+      value: 194
       objectReference: {fileID: 0}
     - target: {fileID: 4886485202932047750, guid: 1650cd91dd6b186429da1253cf099335, type: 3}
       propertyPath: m_Name
@@ -8146,7 +8146,7 @@ PrefabInstance:
       objectReference: {fileID: 947761123}
     - target: {fileID: 2816467862566323563, guid: 03e4ee866b2455c4ca246265fb753c58, type: 3}
       propertyPath: m_VersionIndex
-      value: 116
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 6643363170830306283, guid: 03e4ee866b2455c4ca246265fb753c58, type: 3}
       propertyPath: m_Mesh
@@ -9185,6 +9185,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 381587434}
+    - target: {fileID: 4392325055451787185, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: moveSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6053664936647048096, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -105.50667
@@ -9261,6 +9265,22 @@ PrefabInstance:
       propertyPath: 'weapons.Array.data[1]'
       value: 
       objectReference: {fileID: 1772906166}
+    - target: {fileID: 8982328524945859385, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: maxArmor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982328524945859385, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982328524945859385, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: currentArmor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982328524945859385, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: currentHealth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9332,7 +9352,7 @@ PrefabInstance:
       objectReference: {fileID: 2066772322}
     - target: {fileID: 2598954860225160506, guid: 7385e5300bf7dd14d9352b4868d19ee3, type: 3}
       propertyPath: m_VersionIndex
-      value: 179
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 8149171516401598588, guid: 7385e5300bf7dd14d9352b4868d19ee3, type: 3}
       propertyPath: m_Mesh
@@ -9422,7 +9442,7 @@ PrefabInstance:
       objectReference: {fileID: 593753485}
     - target: {fileID: 1979894714887388915, guid: e44ba09011a9b5b45be9de1da3997fbd, type: 3}
       propertyPath: m_VersionIndex
-      value: 197
+      value: 212
       objectReference: {fileID: 0}
     - target: {fileID: 4503042652297284341, guid: e44ba09011a9b5b45be9de1da3997fbd, type: 3}
       propertyPath: m_Mesh

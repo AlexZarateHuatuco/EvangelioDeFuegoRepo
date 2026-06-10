@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 621063478264817016}
   - component: {fileID: 4239629220242137830}
   - component: {fileID: 5200787401304804942}
+  - component: {fileID: 5005012739255597943}
+  - component: {fileID: 8143108267376674365}
   m_Layer: 0
   m_Name: Body
   m_TagString: Boss
@@ -145,6 +147,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &5005012739255597943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507201267312841352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477e533cdeec7cb49a8a3d05a351a0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BillboardSprite
+--- !u!114 &8143108267376674365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507201267312841352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d26a088a0df3154a88f551f6ef558ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeDamage
+  damageAmount: 2
+  attackCooldown: 1
+  attackRange: 1.5
 --- !u!1 &2969004190377419540
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +189,7 @@ GameObject:
   - component: {fileID: 1473338790216202988}
   - component: {fileID: 7163975084115250154}
   - component: {fileID: 1482864380398340433}
+  - component: {fileID: 4219154994350636435}
   m_Layer: 0
   m_Name: MiniBoss
   m_TagString: Boss
@@ -177,7 +207,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3674251848956456128}
@@ -219,7 +249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2969004190377419540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 334f5e9d8474498479a4d8edd90aaaa2, type: 3}
   m_Name: 
@@ -240,7 +270,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2969004190377419540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
   m_Name: 
@@ -290,10 +320,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4738186
-  m_Height: 2.21963
+  m_Radius: 0.70259386
+  m_Height: 2.1889179
   m_Direction: 1
-  m_Center: {x: 0.18006611, y: 0.062999345, z: 0.742866}
+  m_Center: {x: 0.19514614, y: -0.043271065, z: 0.742866}
 --- !u!114 &1482864380398340433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +345,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundRayLength: 0.2
+--- !u!114 &4219154994350636435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2e6397947b74241b64692b221108ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHealth
+  isBoss: 1
+  currentHealth: 5
+  maxHealth: 5
+  currentArmor: 3
+  maxArmor: 3
 --- !u!1 &5368928428938932379
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8995253096406644254}
   - component: {fileID: 2038310396112736763}
+  - component: {fileID: 1359744907960417613}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -342,7 +390,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.18042, y: 0, z: 0.73226}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5858103188468241781}
@@ -396,7 +444,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 686ffb811cdfa1347bf146c79fbf9f1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -406,3 +454,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!135 &1359744907960417613
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5368928428938932379}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.36
+  m_Center: {x: -0.0000009536743, y: 0, z: -0.0000014305115}

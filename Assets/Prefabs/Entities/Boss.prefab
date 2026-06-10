@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8f7a6a94da8f442b1eefb4aae884a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
-  bulletPrefab: {fileID: 4927917503454973316, guid: 358533b1840e6ef4caacb076eba06edf, type: 3}
+  bulletPrefab: {fileID: 579613770076380826, guid: bcf3e52fb870ec441a0018cee333d336, type: 3}
   firePoint: {fileID: 3674251848956456128}
   fireRate: 2
   detectionRange: 15
@@ -317,10 +317,10 @@ GameObject:
   - component: {fileID: 5858103188468241781}
   - component: {fileID: 564559850489456395}
   - component: {fileID: 7140336505930842038}
-  - component: {fileID: 8548226972135442722}
   - component: {fileID: 7771894316041644020}
   - component: {fileID: 339954149541805216}
   - component: {fileID: 6734559831639403480}
+  - component: {fileID: 6002762255923743272}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -394,22 +394,6 @@ MonoBehaviour:
   attackAngle: 20
   moveSpeed: 3
   rotationSpeed: 90
---- !u!114 &8548226972135442722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969004190377419540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c6f935b997d9041a56c42fa729b5ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyLife
-  bulletTag: 
-  isBoss: 1
-  currentHealth: 2
-  maxHealth: 2
 --- !u!195 &7771894316041644020
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -476,3 +460,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundRayLength: 0.2
+--- !u!114 &6002762255923743272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2e6397947b74241b64692b221108ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHealth
+  isBoss: 1
+  currentHealth: 5
+  maxHealth: 5
+  currentArmor: 5
+  maxArmor: 5
