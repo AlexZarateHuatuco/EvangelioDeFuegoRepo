@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 744444957536604816}
   - component: {fileID: 2295748217292515824}
   - component: {fileID: 6390201015579239896}
+  - component: {fileID: 8722121282124796071}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -166,6 +167,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477e533cdeec7cb49a8a3d05a351a0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BillboardSprite
+--- !u!135 &8722121282124796071
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608538102844597802}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.47999996
+  m_Center: {x: 0.000000029802322, y: 0, z: -0.00000011920929}
 --- !u!1 &2969004190377419540
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +313,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2969004190377419540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

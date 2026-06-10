@@ -32,6 +32,7 @@ public class ExploderMovement : MonoBehaviour
     [SerializeField] private float groundRayLength = 0.2f;
 
     private Rigidbody rb;
+    private Collider col;          // ← cacheado
     private bool isGrounded;
 
     private enum State { Idle, Chase, Arming, Dead }
@@ -44,6 +45,8 @@ public class ExploderMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>(); // ← cachear aquí
+
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
@@ -76,11 +79,9 @@ public class ExploderMovement : MonoBehaviour
             case State.Idle:
                 if (dist <= detectionRange) currentState = State.Chase;
                 break;
-
             case State.Chase:
                 if (dist <= triggerRange) EnterArming();
                 break;
-
             case State.Arming:
                 if (dist > cancelRange) CancelArming();
                 break;
@@ -147,8 +148,13 @@ public class ExploderMovement : MonoBehaviour
             direction = toPlayer.normalized;
         }
 
+        // ← Clamp Y al tocar el suelo para evitar acumulación negativa
+        float verticalVelocity = isGrounded
+            ? Mathf.Max(rb.linearVelocity.y, 0f)
+            : rb.linearVelocity.y;
+
         Vector3 velocity = direction * moveSpeed;
-        velocity.y = rb.linearVelocity.y;
+        velocity.y = verticalVelocity;
         rb.linearVelocity = velocity;
 
         if (direction.sqrMagnitude > 0.01f)
@@ -172,8 +178,13 @@ public class ExploderMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down,
-            GetComponent<Collider>().bounds.extents.y + groundRayLength, groundLayer);
+        // ← Usar col cacheado
+        isGrounded = Physics.Raycast(
+            transform.position,
+            Vector3.down,
+            col.bounds.extents.y + groundRayLength,
+            groundLayer
+        );
     }
 
     private void OnDrawGizmosSelected()
