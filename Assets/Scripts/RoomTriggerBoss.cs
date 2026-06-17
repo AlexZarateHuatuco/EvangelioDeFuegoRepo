@@ -1,14 +1,10 @@
 using UnityEngine;
-
 public class RoomTriggerBoss : MonoBehaviour
 {
-    public BossHealth bossHealth;
-
-    public GameObject entranceBarrier;
-    public GameObject exitBarrier;
-
     private bool activated;
-
+    public Collider roomZone;
+    public GameObject exitBarrier;
+    public GameObject entranceBarrier;
     private void OnTriggerEnter(Collider other)
     {
         if (activated)
@@ -17,21 +13,27 @@ public class RoomTriggerBoss : MonoBehaviour
         if (!other.transform.root.CompareTag("Player"))
             return;
 
-        Debug.Log("EL JUGADOR ENTRÓ");
+        Debug.Log("EL JUGADOR ENTRÓ (Boss)");
 
         activated = true;
 
         entranceBarrier.SetActive(true);
         exitBarrier.SetActive(true);
 
-        bossHealth.OnBossDeath += OpenRoom;
+        var allEnemies = FindObjectsByType<EnemyHealth>(FindObjectsSortMode.None);
+        foreach (var enemy in allEnemies)
+        {
+            if (enemy.IsBoss && roomZone.bounds.Contains(enemy.transform.position))
+            {
+                enemy.OnEnemyDeath += OpenRoom;
+                break;
+            }
+        }
     }
 
     private void OpenRoom()
     {
         entranceBarrier.SetActive(false);
         exitBarrier.SetActive(false);
-
-        bossHealth.OnBossDeath -= OpenRoom;
     }
 }

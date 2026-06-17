@@ -32,7 +32,7 @@ public class ExploderMovement : MonoBehaviour
     [SerializeField] private float groundRayLength = 0.2f;
 
     private Rigidbody rb;
-    private Collider col;          // ← cacheado
+    private Collider col;
     private bool isGrounded;
 
     private enum State { Idle, Chase, Arming, Dead }
@@ -45,7 +45,7 @@ public class ExploderMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>(); // ← cachear aquí
+        col = GetComponent<Collider>();
 
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -148,7 +148,6 @@ public class ExploderMovement : MonoBehaviour
             direction = toPlayer.normalized;
         }
 
-        // ← Clamp Y al tocar el suelo para evitar acumulación negativa
         float verticalVelocity = isGrounded
             ? Mathf.Max(rb.linearVelocity.y, 0f)
             : rb.linearVelocity.y;
@@ -178,7 +177,6 @@ public class ExploderMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        // ← Usar col cacheado
         isGrounded = Physics.Raycast(
             transform.position,
             Vector3.down,

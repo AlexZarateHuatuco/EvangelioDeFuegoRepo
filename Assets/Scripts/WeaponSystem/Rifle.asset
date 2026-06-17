@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6d0dd7f09b7e940a3b2762db46d506, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Rifle
+  weaponIcon: {fileID: 21300000, guid: 8457a334943329f4ea3c01b3c6a5a994, type: 3}
+  bulletType: 2
+  damage: 10
+  fireRate: 0.08
+  bulletSpeed: 35
+  range: 50
+  maxAmmoInClip: 30
+  maxAmmoReserve: 300
+  reloadTime: 1.5
+  bulletPrefab: {fileID: 4927917503454973316, guid: 50a6925c1e1c8e9488527c8a3fc03b32, type: 3}
+  muzzleFlashPrefab: {fileID: 0}
+  fireMode: 0
+  pelletsCount: 8
+  spreadAngle: 15
+  burstCount: 3
+  burstFireRate: 0.08
+  shootSound: {fileID: 8300000, guid: 4bb627957680f3940af27b389290204c, type: 3}
+  reloadSound: {fileID: 8300000, guid: 2555cdd3f8627f24798d1057ca9efe6f, type: 3}
+  emptySound: {fileID: 8300000, guid: 6fe881373ce82954faccf92b6c06877e, type: 3}

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6d0dd7f09b7e940a3b2762db46d506, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Shotgun
+  weaponIcon: {fileID: 21300000, guid: b72ac1d5169f4374dbd45dae126cacd0, type: 3}
+  bulletType: 1
+  damage: 10
+  fireRate: 0.9
+  bulletSpeed: 100
+  range: 20
+  maxAmmoInClip: 8
+  maxAmmoReserve: 20
+  reloadTime: 1.5
+  bulletPrefab: {fileID: 4927917503454973316, guid: cbe405a62e572f74c851cbba4d38f1c8, type: 3}
+  muzzleFlashPrefab: {fileID: 0}
+  fireMode: 1
+  pelletsCount: 8
+  spreadAngle: 15
+  burstCount: 3
+  burstFireRate: 0.08
+  shootSound: {fileID: 8300000, guid: 2106dbc5bb0edab4b887db1d9d2d0aa4, type: 3}
+  reloadSound: {fileID: 8300000, guid: ae6063c218eea22428ff029562a19220, type: 3}
+  emptySound: {fileID: 8300000, guid: 7949a09537f6d3a4493cee1c4a8320d5, type: 3}
