@@ -19,7 +19,6 @@ public class RangedMovement : MonoBehaviour
     [SerializeField] private float groundRayLength = 0.2f;
 
     private Rigidbody rb;
-    private Collider col;
     private float attackTimer;
     private bool isGrounded;
 
@@ -29,8 +28,6 @@ public class RangedMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
-
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
@@ -79,22 +76,21 @@ public class RangedMovement : MonoBehaviour
             case State.Chase:
                 direction = toPlayer.normalized;
                 break;
+
             case State.TooClose:
                 direction = -toPlayer.normalized;
                 break;
+
             case State.InRange:
                 direction = Vector3.zero;
                 break;
         }
 
-        float verticalVelocity = isGrounded
-            ? Mathf.Max(rb.linearVelocity.y, 0f)
-            : rb.linearVelocity.y;
-
         Vector3 velocity = direction * moveSpeed;
-        velocity.y = verticalVelocity;
+        velocity.y = rb.linearVelocity.y;
         rb.linearVelocity = velocity;
 
+        // Siempre mirar al jugador (solo en XZ)
         if (toPlayer.sqrMagnitude > 0.01f)
             transform.rotation = Quaternion.LookRotation(toPlayer);
     }
@@ -110,12 +106,8 @@ public class RangedMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        isGrounded = Physics.Raycast(
-            transform.position,
-            Vector3.down,
-            col.bounds.extents.y + groundRayLength,
-            groundLayer
-        );
+        isGrounded = Physics.Raycast(transform.position, Vector3.down,
+            GetComponent<Collider>().bounds.extents.y + groundRayLength, groundLayer);
     }
 
     private void OnDrawGizmosSelected()

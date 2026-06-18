@@ -79,9 +79,11 @@ public class ExploderMovement : MonoBehaviour
             case State.Idle:
                 if (dist <= detectionRange) currentState = State.Chase;
                 break;
+
             case State.Chase:
                 if (dist <= triggerRange) EnterArming();
                 break;
+
             case State.Arming:
                 if (dist > cancelRange) CancelArming();
                 break;
@@ -153,7 +155,7 @@ public class ExploderMovement : MonoBehaviour
             : rb.linearVelocity.y;
 
         Vector3 velocity = direction * moveSpeed;
-        velocity.y = verticalVelocity;
+        velocity.y = rb.linearVelocity.y;
         rb.linearVelocity = velocity;
 
         if (direction.sqrMagnitude > 0.01f)

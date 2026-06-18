@@ -19,7 +19,6 @@ public class MeleeMovement : MonoBehaviour
     [SerializeField] private float groundRayLength = 0.2f;
 
     private Rigidbody rb;
-    private Collider col;
     private float attackTimer;
     private bool isGrounded;
 
@@ -29,8 +28,6 @@ public class MeleeMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
-
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
@@ -78,12 +75,9 @@ public class MeleeMovement : MonoBehaviour
             direction = toPlayer.normalized;
         }
 
-        float verticalVelocity = isGrounded
-            ? Mathf.Max(rb.linearVelocity.y, 0f)
-            : rb.linearVelocity.y;
-
+        // Preservar la velocidad vertical del Rigidbody (gravedad)
         Vector3 velocity = direction * moveSpeed;
-        velocity.y = verticalVelocity;
+        velocity.y = rb.linearVelocity.y;
         rb.linearVelocity = velocity;
 
         if (direction.sqrMagnitude > 0.01f)
@@ -101,12 +95,8 @@ public class MeleeMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        isGrounded = Physics.Raycast(
-            transform.position,
-            Vector3.down,
-            col.bounds.extents.y + groundRayLength,
-            groundLayer
-        );
+        isGrounded = Physics.Raycast(transform.position, Vector3.down,
+            GetComponent<Collider>().bounds.extents.y + groundRayLength, groundLayer);
     }
 
     private void OnDrawGizmosSelected()

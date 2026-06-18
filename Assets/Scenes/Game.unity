@@ -1511,10 +1511,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1279279419254770377, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 123228995}
     - target: {fileID: 2969004190377419540, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
       propertyPath: m_Name
       value: EnemyShotgun
@@ -1563,6 +1559,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 123228995}
+    - target: {fileID: 7714995470413488774, guid: c868004e22eba5a46a44ebd0dc0dd816, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4953,10 +4953,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8971105429313210787, guid: 8b68eac5427278a4abc154a5e9ca3839, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 123228995}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6381,11 +6377,7 @@ PrefabInstance:
       objectReference: {fileID: 319728056}
     - target: {fileID: 1353418257946068190, guid: 4517df082aca58449a0d6c7272a0bf9f, type: 3}
       propertyPath: m_VersionIndex
-<<<<<<< Updated upstream
-      value: 194
-=======
       value: 209
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 1555048128948115524, guid: 4517df082aca58449a0d6c7272a0bf9f, type: 3}
       propertyPath: m_Name
@@ -10180,11 +10172,7 @@ PrefabInstance:
       objectReference: {fileID: 2094143179}
     - target: {fileID: 5098952848257152375, guid: 0e970074654909d44974003cc565a2bf, type: 3}
       propertyPath: m_VersionIndex
-<<<<<<< Updated upstream
       value: 256
-=======
-      value: 223
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 5098952848257152375, guid: 0e970074654909d44974003cc565a2bf, type: 3}
       propertyPath: m_Tangents.Array.data[0].y
