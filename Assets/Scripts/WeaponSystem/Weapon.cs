@@ -393,7 +393,7 @@ public class Weapon : MonoBehaviour
                     rb.linearVelocity = direction * data.bulletSpeed;
                 }
             }
-        }
+        } 
         else
         {*/
             BulletPlayer bullet = bulletGO.GetComponent<BulletPlayer>();
