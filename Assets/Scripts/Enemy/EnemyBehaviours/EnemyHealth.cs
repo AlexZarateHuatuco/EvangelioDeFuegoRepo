@@ -271,8 +271,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (bullet != null)
         {
-            if (!IsVulnerableTo(bullet._bulletType))
-                return;
+            //if (!IsVulnerableTo(bullet._bulletType))
+            //    return;
 
             TakeDamage(bullet.Damage);
             Destroy(other.gameObject);
@@ -287,13 +287,13 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public bool IsVulnerableTo(BulletType bulletType)
-    {
-        if (bulletType == BulletType.Grenade)
-            return true;
+    //public bool IsVulnerableTo(BulletType bulletType)
+    //{
+    //    if (bulletType == BulletType.Grenade)
+    //        return true;
 
-        return (EnemyType)bulletType == enemyType;
-    }
+    //    return (EnemyType)bulletType == enemyType;
+    //}
 
     public void TakeDamage(float damage)
     {

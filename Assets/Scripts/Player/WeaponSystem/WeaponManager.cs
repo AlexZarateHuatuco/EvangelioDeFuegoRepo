@@ -96,18 +96,18 @@ public class WeaponManager : MonoBehaviour
         return ray.GetPoint(100f);
     }
 
-    public bool AddAmmoToWeapon(BulletType bulletType, int amount)
-    {
-        foreach (Weapon w in weaponSlots)
-        {
-            if (w != null && w.Data.bulletType == bulletType)
-            {
-                w.AddAmmo(amount);
-                return true;
-            }
-        }
-        return false;
-    }
+    //public bool AddAmmoToWeapon(BulletType bulletType, int amount)
+    //{
+    //    foreach (Weapon w in weaponSlots)
+    //    {
+    //        if (w != null && w.Data.bulletType == bulletType)
+    //        {
+    //            w.AddAmmo(amount);
+    //            return true;
+    //        }
+    //    }
+    //    return false;
+    //}
 
     public Weapon GetWeapon(int index)
     {

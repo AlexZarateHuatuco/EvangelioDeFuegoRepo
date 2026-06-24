@@ -65,7 +65,7 @@ public abstract class WeaponBase : MonoBehaviour
     public WeaponType weaponType;
 
     [Header("Bullet Type")]
-    public BulletType bulletType;
+    //public BulletType bulletType;
 
     [Header("Ammo")]
     public int currentAmmo = 30;
@@ -90,7 +90,7 @@ public abstract class WeaponBase : MonoBehaviour
         if (bullet != null)
         {
             bullet.Damage = damage;
-            bullet._bulletType = bulletType;
+        //    bullet._bulletType = bulletType;
         }
         else
         {

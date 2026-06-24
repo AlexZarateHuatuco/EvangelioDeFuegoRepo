@@ -17,7 +17,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float currentHealth = 30f;
     [SerializeField] private float maxHealth = 30f;
     [SerializeField] private float debugDamage = 1f;
-    [SerializeField] private bool iFramesActive= true;
+    //[SerializeField] private bool iFramesActive= true;
+    //Re-Fix- When Needed
+
+
+
+
+
     // public bool isDashing = true;
     // i-frames dash tendrán que esperar.
 

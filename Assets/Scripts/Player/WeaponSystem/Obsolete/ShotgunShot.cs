@@ -146,7 +146,7 @@ public class ShotgunShot : WeaponBase
     {
         base.Start();
         weaponType = WeaponType.Shotgun;
-        bulletType = BulletType.Ice;
+        //bulletType = BulletType.Ice;
 
         if (cam == null)
         {

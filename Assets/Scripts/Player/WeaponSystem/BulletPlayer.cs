@@ -45,7 +45,7 @@ using UnityEngine;
 public class BulletPlayer : MonoBehaviour
 {
     [Header("Bullet Settings")]
-    [SerializeField] private BulletType bulletType;
+    //[SerializeField] private BulletType bulletType;
     [SerializeField] private float bulletSpeed = 0f;
 
     private float damage;
@@ -54,11 +54,11 @@ public class BulletPlayer : MonoBehaviour
     private Vector3 startPosition;
     private Rigidbody rb;
 
-    public BulletType _bulletType
-    {
-        get { return bulletType; }
-        set { bulletType = value; }
-    }
+    //public BulletType _bulletType
+    //{
+    //    get { return bulletType; }
+    //    set { bulletType = value; }
+    //}
 
     public float Damage
     {
@@ -117,16 +117,16 @@ public class BulletPlayer : MonoBehaviour
     }
 }
 
-public enum BulletType
-{
-    Normal,
-    Fire,
-    Ice,
-    Electric,
-    Explosive,
-    Poison,
-    Light,
-    Dark,
-    Grenade
-        //bwhuhwh... wha...
-}
+//public enum BulletType
+//{
+//    Normal,
+//    Fire,
+//    Ice,
+//    Electric,
+//    Explosive,
+//    Poison,
+//    Light,
+//    Dark,
+//    Grenade
+//        //bwhuhwh... wha...
+//}

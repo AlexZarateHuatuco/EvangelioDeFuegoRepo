@@ -130,7 +130,7 @@ public class RifleShot : WeaponBase
     {
         base.Start();
         weaponType = WeaponType.Rifle;
-        bulletType = BulletType.Fire;
+        //bulletType = BulletType.Fire;
 
         if (cam == null)
         {

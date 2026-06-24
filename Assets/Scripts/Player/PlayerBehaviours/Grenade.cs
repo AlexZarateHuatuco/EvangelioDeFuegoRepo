@@ -79,7 +79,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Grenade : MonoBehaviour
 {
-    [HideInInspector] public BulletType bulletType = BulletType.Grenade;
+    ///[HideInInspector] public BulletType bulletType = BulletType.Grenade;
+    ///[HideInInspector] public BulletType bulletType = BulletType.Grenade;
     [HideInInspector] public float damage = 80f;
 
     [Header("Explosión")]

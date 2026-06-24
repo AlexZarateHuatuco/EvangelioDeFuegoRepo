@@ -8,7 +8,7 @@ public class WeaponData : ScriptableObject
     public Sprite weaponIcon;
 
     [Header("Tipo de bala")]
-    public BulletType bulletType;
+    //public BulletType bulletType;
 
     [Header("Estadísticas de disparo")]
     public float damage = 10f;

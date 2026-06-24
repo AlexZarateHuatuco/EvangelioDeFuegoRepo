@@ -400,7 +400,7 @@ public class Weapon : MonoBehaviour
 
             if (bullet != null)
             {
-                bullet._bulletType = data.bulletType;
+                //bullet._bulletType = data.bulletType;
                 bullet.Damage = data.damage;
                 bullet.Range = data.range;
 

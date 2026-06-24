@@ -3,8 +3,8 @@ using UnityEngine;
 public class AmmoPickup : MonoBehaviour
 {
     [Header("Tipo y cantidad de munición")]
-    [SerializeField] private BulletType bulletType;
-    [SerializeField] private int ammoAmount = 30;
+    //[SerializeField] private BulletType bulletType;
+    //[SerializeField] private int ammoAmount = 30;
 
     [Header("Feedback")]
     [SerializeField] private AudioClip pickupSound;
@@ -22,12 +22,12 @@ public class AmmoPickup : MonoBehaviour
 
         if (manager == null) return;
 
-        bool added = manager.AddAmmoToWeapon(bulletType, ammoAmount);
-        if (!added)
-        {
-            Debug.Log($"[AmmoPickup] Ningún arma usa el tipo {bulletType}.");
-            return;
-        }
+        //bool added = manager.AddAmmoToWeapon(bulletType, ammoAmount);
+        //if (!added)
+        //{
+        //    Debug.Log($"[AmmoPickup] Ningún arma usa el tipo {bulletType}.");
+        //    return;
+        //}
 
         if (pickupSound != null)
             AudioSource.PlayClipAtPoint(pickupSound, transform.position);
