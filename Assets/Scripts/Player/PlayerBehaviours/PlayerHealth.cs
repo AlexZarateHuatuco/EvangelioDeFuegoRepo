@@ -17,8 +17,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float currentHealth = 30f;
     [SerializeField] private float maxHealth = 30f;
     [SerializeField] private float debugDamage = 1f;
+    [SerializeField] private bool iFramesActive= true;
+    // public bool isDashing = true;
+    // i-frames dash tendrán que esperar.
 
-    //Public variables
+    //Public variables <- y mention dis :u
     public float CurrentArmor
     {
         get { return currentArmor; }
@@ -51,15 +54,15 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentArmor -= damage;
-        currentArmor = Mathf.Clamp(currentArmor, 0f, maxArmor);
-        Debug.Log($"Player have recieved ({damage}). Current Armor: {currentArmor}");
         if (currentArmor == 0)
         {
             currentHealth -= damage;
             currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
             Debug.Log($"Player have recieved ({damage}). Current Health: {currentHealth}");
         }
+        currentArmor -= damage;
+        currentArmor = Mathf.Clamp(currentArmor, 0f, maxArmor);
+        Debug.Log($"Player have recieved ({damage}). Current Armor: {currentArmor}");
         OnPlayerDamaged?.Invoke();
         if (currentHealth <= 0f)
         {
@@ -81,7 +84,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player have died.");
+        Debug.Log("Player has died.");
         OnPlayerDeath?.Invoke();
         SceneManager.LoadScene("DeathScreen");
     }
@@ -93,5 +96,8 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(debugDamage);
         }
+        else  Debug.Log("This is not damaging da player :3");
+
+
     }
 }

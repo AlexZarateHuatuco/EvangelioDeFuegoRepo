@@ -36,6 +36,6 @@ public class EnemyKamikaze : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
-        //...i lov u gizmos. i am so zorry i gav u flak :x
+        //...i lov u gizmos. i am so zorry i gav u flak :x I LOVE U PAST ME NEVER CHANGE
     }
 }

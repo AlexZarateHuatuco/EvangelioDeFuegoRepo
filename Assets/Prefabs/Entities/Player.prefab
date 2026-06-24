@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6053664936647048096}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,10 +190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 10
-  jumpHeight: 2
   gravity: -20
-  maxJumps: 2
-  mouseSensitivity: 200
+  horizontalSensitivity: 200
+  verticalSensitivity: 200
   cameraPivot: {fileID: 682904811272553782}
 --- !u!114 &8982328524945859385
 MonoBehaviour:
@@ -212,6 +211,8 @@ MonoBehaviour:
   currentHealth: 10
   maxHealth: 10
   debugDamage: 1
+  iFramesActive: 1
+  isDashing: 1
 --- !u!114 &6939605059411687511
 MonoBehaviour:
   m_ObjectHideFlags: 0

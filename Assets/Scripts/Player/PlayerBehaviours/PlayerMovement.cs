@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float xRotation;
     private float verticalVelocity;
-    private int jumpCount;
+
 
     void Start()
     {
@@ -162,8 +162,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 verticalVelocity = -2f;
             }
-
-            jumpCount = 0;
         }
 
         // ---------- SALTO ----------

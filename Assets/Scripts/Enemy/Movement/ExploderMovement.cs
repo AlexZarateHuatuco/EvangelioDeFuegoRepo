@@ -39,7 +39,7 @@ public class ExploderMovement : MonoBehaviour
     private State currentState = State.Idle;
 
     private float fuseTimer;
-    private bool exploding;
+    private bool exploding; 
     private Coroutine flashCoroutine;
 
     private void Awake()
