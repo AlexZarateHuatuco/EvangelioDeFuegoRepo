@@ -1846,31 +1846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142425bd181ff554b80800131f40a71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
---- !u!114 &401312257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401312246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ba8292aefd42747825ec5c1999652a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  isMiniBoss: 0
-  isBoss: 0
-  enemyType: 1
-  currentHealth: 10
-  maxHealth: 10
-  hasArmor: 0
-  currentArmor: 0
-  maxArmor: 0
-  canRegenerate: 0
-  regenThresholdPercent: 0
-  regenAmountPerTick: 0
-  regenTickInterval: 0
-  regenDuration: 0
 --- !u!1001 &433710926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10980,10 +10955,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1122007687573112314, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 401312257}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
 --- !u!1001 &8585664034325769262
 PrefabInstance:
