@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6277ca82d3fb8c144bd659f64615c777, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfb9218fcaf599444af30750a99e8f2a, type: 2}
     - target: {fileID: 919132149155446097, guid: 6277ca82d3fb8c144bd659f64615c777, type: 3}
       propertyPath: m_Name
       value: HolyHandGrenade
@@ -103,4 +107,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Granada
   damage: 0
   player: {fileID: 0}
-  enemy: {fileID: 0}
