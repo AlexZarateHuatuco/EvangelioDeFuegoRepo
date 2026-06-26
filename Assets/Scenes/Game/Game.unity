@@ -3683,7 +3683,7 @@ PrefabInstance:
       objectReference: {fileID: 671066580}
     - target: {fileID: 4503290695357223478, guid: a5378639df881ab4d96a0b72f319f356, type: 3}
       propertyPath: m_VersionIndex
-      value: 386
+      value: 389
       objectReference: {fileID: 0}
     - target: {fileID: 5559797404118604094, guid: a5378639df881ab4d96a0b72f319f356, type: 3}
       propertyPath: m_Mesh
@@ -4054,7 +4054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8ce3eaa5f82c7478b8ae0b01cce96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletPlayer
-  bulletType: 1
   bulletSpeed: 0
 --- !u!135 &923420712
 SphereCollider:
@@ -10792,6 +10791,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1250431637306478232, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7deadb3a6c93334408bfd516ba257d69, type: 2}
     - target: {fileID: 1331857385298121265, guid: 3519e3803f2c9d842953c80bacf79ba5, type: 3}
       propertyPath: m_IsActive
       value: 0
