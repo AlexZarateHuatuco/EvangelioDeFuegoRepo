@@ -3,6 +3,8 @@ using UnityEngine;
 public class GizmosForDoorsAndExits : MonoBehaviour
 {
     //a ser usado con empty gameobjects
+    //EMPTY
+    //nada maaass1!1!!1!!
 
     [SerializeField] private Color arrowColor = Color.green;   // green man was here
     //ah red es para salidas

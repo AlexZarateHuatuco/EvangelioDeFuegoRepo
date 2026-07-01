@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EFArmor
       objectReference: {fileID: 0}
+    - target: {fileID: 1170970068873931921, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c54ed2f5f3805b45ade334e35aa6903, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Armor
   player: {fileID: 0}
-  armorAmount: 10
+  armorAmount: 15
 --- !u!1 &8400699446770590023 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7609145667655734672, guid: 328f2740ab3c49d40ab5d5cb7d051f3e, type: 3}

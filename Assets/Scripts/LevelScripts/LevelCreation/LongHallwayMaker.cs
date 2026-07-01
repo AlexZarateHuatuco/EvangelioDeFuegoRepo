@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 public class LongHallwayMaker : MonoBehaviour
 {
     //Ejejem!!! Presenting. Le Variables du nivelat. danke. dank u. oh np np
-    [SerializeField] private GameObject[] recoveryRooms;
-    [SerializeField] private GameObject[] combatRooms;
-    [SerializeField] private GameObject[] portalRooms;
+    [SerializeField] private GameObject[] recoveryRooms; //Church
+    [SerializeField] private GameObject[] combatRooms; //Town
+    [SerializeField] private GameObject[] portalRooms; //boss but portal
     [SerializeField] private string sceneToLoad = "DinnerTimeOrReplacemeIguess";//modificar anterior con escena d victoria
 
-    [SerializeField] private int difficultySlider = 1; //aka: cuantos kuartos crear.... di is no procgen but. eh. valor inicial es 1!
+    [SerializeField] private int difficultySlider = 0; //aka: cuantos kuartos crear.... di is no procgen but. eh. valor inicial es 1!
                                                        
 
     private List<GameObject> spawnedRooms = new List<GameObject>();
@@ -24,7 +24,11 @@ public class LongHallwayMaker : MonoBehaviour
         if (generateOnStart == true) 
         {
             GenerateFloor();
-        }       
+        }
+        else
+        {
+            NextFloor();
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +40,7 @@ public class LongHallwayMaker : MonoBehaviour
     private void NextFloor()
     {
         difficultySlider++;
-        if (difficultySlider <= 5)
+        if (difficultySlider < 5)
         {
             SceneManager.LoadScene(sceneToLoad);
 
@@ -47,7 +51,7 @@ public class LongHallwayMaker : MonoBehaviour
         }
     }
 
-    private void GenerateFloor()
+    public void GenerateFloor()
     {
         for (int i = 0; i < spawnedRooms.Count; i++)
         {
@@ -55,10 +59,11 @@ public class LongHallwayMaker : MonoBehaviour
         }
         spawnedRooms.Clear();
 
+        //reposo no 1
         GameObject recoveryRoomOne = SpawnRandomRoom(recoveryRooms, Vector3.zero, Quaternion.identity);
         spawnedRooms.Add(recoveryRoomOne);
         Transform previousExit = recoveryRoomOne.transform.Find("exit");
-
+        //attaque no 1
         for (int i = 0; i < difficultySlider; i++)
         {
             GameObject combatRoom = SpawnRandomRoom(combatRooms);
@@ -72,7 +77,7 @@ public class LongHallwayMaker : MonoBehaviour
         spawnedRooms.Add(secondRecovery);
         previousExit = secondRecovery.transform.Find("exit");
 
-//        /combate no 2
+        //combate no 2
         for (int i = 0; i < difficultySlider + 1; i++)
         {
             GameObject combatRoom = SpawnRandomRoom(combatRooms);
@@ -80,7 +85,7 @@ public class LongHallwayMaker : MonoBehaviour
             spawnedRooms.Add(combatRoom);
             previousExit = combatRoom.transform.Find("exit");
         }
-
+        // portal room!!!!1!1!!
         GameObject portal = SpawnRandomRoom(portalRooms);
         AlignToDoor(portal, previousExit);
         spawnedRooms.Add(portal);

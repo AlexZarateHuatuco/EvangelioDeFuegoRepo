@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2965133005268184638}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MuzzleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,9 +78,11 @@ GameObject:
   - component: {fileID: 5422189983034823525}
   - component: {fileID: 4392325055451787185}
   - component: {fileID: 8982328524945859385}
+  - component: {fileID: 427970455245490745}
+  - component: {fileID: 2239476278449765420}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,6 +242,48 @@ MonoBehaviour:
   currentHealth: 10
   maxHealth: 10
   debugDamage: 1
+--- !u!114 &427970455245490745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122007687573112314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292189d9ea266ec45896020ed699fe3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AkimboRifles
+  leftMuzzle: {fileID: 2965133005268184638}
+  rightMuzzle: {fileID: 4292662763172847024}
+  playerCamera: {fileID: 3811387593467006640}
+  maxRange: 20
+  blockingLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  maxAmmo: 15
+  reloadTime: 5
+  muzzleFlashPrefab: {fileID: 0}
+  impactEffectPrefab: {fileID: 0}
+--- !u!114 &2239476278449765420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122007687573112314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d681a920b074b479950b29d26e2cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingKill
+  fallThreshold: 20
+  timeWindow: 2
+  gameOverScene: Derrota
+  time: 0
+  currentHeight: 0
+  lastHeight: 0
+  monitoredEntity: {fileID: 0}
 --- !u!1 &1693189582591312661
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4292662763172847024}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MuzzleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
