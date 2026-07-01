@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 5858103188468241781}
   - component: {fileID: 3634953162216592013}
   - component: {fileID: 350781350443204238}
+  - component: {fileID: 9163126677914026905}
   - component: {fileID: 3207665555612028219}
   - component: {fileID: 2689312771618553529}
   - component: {fileID: 3532796994398946597}
@@ -237,6 +238,25 @@ CapsuleCollider:
   m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9163126677914026905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d681a920b074b479950b29d26e2cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingKill
+  fallThreshold: 20
+  timeWindow: 2
+  gameOverScene: GameOver
+  time: 0
+  currentHeight: 0
+  lastHeight: 0
+  monitoredEntity: {fileID: 2969004190377419540}
 --- !u!136 &3207665555612028219
 CapsuleCollider:
   m_ObjectHideFlags: 0

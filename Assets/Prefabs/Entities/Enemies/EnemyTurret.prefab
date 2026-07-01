@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 4804527661816581601}
   - component: {fileID: 7877712443899756995}
   - component: {fileID: 6755605076001608952}
+  - component: {fileID: 1151960392209049459}
   - component: {fileID: 3162225273213276616}
   - component: {fileID: 3436044273225167655}
   - component: {fileID: 8697441308514886555}
@@ -198,6 +199,25 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   fireRate: 2
   detectionRange: 15
+--- !u!114 &1151960392209049459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d681a920b074b479950b29d26e2cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingKill
+  fallThreshold: 20
+  timeWindow: 2
+  gameOverScene: GameOver
+  time: 0
+  currentHeight: 0
+  lastHeight: 0
+  monitoredEntity: {fileID: 2969004190377419540}
 --- !u!114 &3162225273213276616
 MonoBehaviour:
   m_ObjectHideFlags: 0

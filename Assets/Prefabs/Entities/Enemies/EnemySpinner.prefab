@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 6621792891042435653}
   - component: {fileID: 8865247025810568084}
   - component: {fileID: 3847416791970555586}
+  - component: {fileID: 1085414237598652390}
   - component: {fileID: 8149563509928505872}
   - component: {fileID: 2748422695648390430}
   - component: {fileID: 4228474823653977750}
@@ -204,6 +205,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundRayLength: 0.2
+--- !u!114 &1085414237598652390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d681a920b074b479950b29d26e2cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingKill
+  fallThreshold: 20
+  timeWindow: 2
+  gameOverScene: GameOver
+  time: 0
+  currentHeight: 0
+  lastHeight: 0
+  monitoredEntity: {fileID: 2969004190377419540}
 --- !u!114 &8149563509928505872
 MonoBehaviour:
   m_ObjectHideFlags: 0
