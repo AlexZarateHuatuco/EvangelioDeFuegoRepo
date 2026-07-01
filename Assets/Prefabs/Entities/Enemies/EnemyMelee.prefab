@@ -154,13 +154,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5858103188468241781}
-  - component: {fileID: 564559850489456395}
-  - component: {fileID: 7140336505930842038}
-  - component: {fileID: 8548226972135442722}
-  - component: {fileID: 1473338790216202988}
-  - component: {fileID: 7163975084115250154}
+  - component: {fileID: 3634953162216592013}
+  - component: {fileID: 350781350443204238}
+  - component: {fileID: 3207665555612028219}
+  - component: {fileID: 2689312771618553529}
+  - component: {fileID: 3532796994398946597}
+  - component: {fileID: 5181067242346525147}
+  - component: {fileID: 5330015616089507688}
+  - component: {fileID: 8866500118269755468}
   m_Layer: 0
-  m_Name: MiniBoss
+  m_Name: EnemyMelee
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,6 +183,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8995253096406644254}
+  - {fileID: 3674251848956456128}
+  - {fileID: 6998305561788040027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3634953162216592013
@@ -209,6 +214,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &350781350443204238
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 2.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &3207665555612028219
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 2.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2689312771618553529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,21 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e2f26bc56f76c4f9615acc9e770e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCounter
---- !u!114 &5330015616089507688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969004190377419540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d26a088a0df3154a88f551f6ef558ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MeleeDamage
-  damageAmount: 2
-  attackCooldown: 1
-  attackRange: 1.5
 --- !u!114 &3532796994398946597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,19 +305,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ba8292aefd42747825ec5c1999652a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  isMiniBoss: 1
+  isMiniBoss: 0
   isBoss: 0
-  currentHealth: 150
-  maxHealth: 150
-  hasArmor: 1
-  currentArmor: 50
-  maxArmor: 50
+  currentHealth: 35
+  maxHealth: 35
   canRegenerate: 1
   regenThresholdPercent: 30
   regenAmountPerTick: 1
   regenTickInterval: 0.5
   regenDuration: 5
-  vulnerableTo: 000000000200000001000000
+--- !u!114 &5330015616089507688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969004190377419540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d26a088a0df3154a88f551f6ef558ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeDamage
+  damageAmount: 2
+  attackCooldown: 1
+  attackRange: 1.5
 --- !u!114 &8866500118269755468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,52 +344,6 @@ MonoBehaviour:
   flashDuration: 0.08
   flashCount: 2
   flashColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!136 &3207665555612028219
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969004190377419540}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.45
-  m_Height: 2.2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &350781350443204238
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969004190377419540}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.45
-  m_Height: 2.2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5368928428938932379
 GameObject:
   m_ObjectHideFlags: 0
